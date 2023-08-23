@@ -31,11 +31,11 @@ const clientNames = Object.keys(clients)
               const ppv = getPositivePredictiveValue(data)
 
               return (
-                  <tr key={index}>
-                      <td className="border-t px-4 py-2">{name}</td>
-                      <td className={`text-center p-2 bg-opacity-40 ${getPercentageColor(tpr)}`}>{formatPercentage(tpr)}</td>
-                      <td className={`text-center p-2 bg-opacity-40 ${getPercentageColor(tnr)}`}>{formatPercentage(tnr)}</td>
-                      <td className={`text-center p-2 bg-opacity-40 ${getPercentageColor(ppv)}`}>{formatPercentage(ppv)}</td>
+                  <tr className="border-t border-gray-100" key={index}>
+                      <td className="px-4 py-2">{name}</td>
+                      <td className={`text-center p-2 bg-opacity-40 border-l border-gray-100 ${getPercentageColor(tpr)}`}>{formatPercentage(tpr)}</td>
+                      <td className={`text-center p-2 bg-opacity-40 border-l border-gray-100 ${getPercentageColor(tnr)}`}>{formatPercentage(tnr)}</td>
+                      <td className={`text-center p-2 bg-opacity-40 border-l border-gray-100 ${getPercentageColor(ppv)}`}>{formatPercentage(ppv)}</td>
                   </tr>
               )
           })}
