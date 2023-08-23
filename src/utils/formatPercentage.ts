@@ -1,5 +1,5 @@
 const formatPercentage = (value: number) => {
-  return isNaN(value) ? '-' : `${value} %`
+  return isNaN(value) ? '0 %' : `${value} %`
 }
 
 export default formatPercentage;
