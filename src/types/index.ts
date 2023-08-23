@@ -26,3 +26,8 @@ export type Precision = {
   false_negatives: number
   false_negatives_detail: FalseNegative
 }
+
+export enum PrecisionView {
+  OVERVIEW = 'OVERVIEW',
+  TPR_DETAIL = 'TPR_DETAIL'
+}

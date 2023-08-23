@@ -1,47 +1,46 @@
-import { FC } from 'react'
-import { PrecisionResults } from '@/types'
-import getTruePositiveRate from '@/utils/getTruePositiveRate';
-import getTrueNegativeRate from '@/utils/getTrueNegativeRate';
-import getPositivePredictiveValue from '@/utils/getPositivePredictiveValue';
-import getPercentageColor from '@/utils/getPercentageColor';
-import formatPercentage from '@/utils/formatPercentage';
+'use client'
+
+import {FC, useState} from 'react'
+import {PrecisionResults, PrecisionView} from '@/types'
+import Overview from '@/components/PercisionTable/Views/Overview';
+import TabSelect from '@/components/PercisionTable/TabSelect';
 
 export interface PrecisionTableProps {
   data: PrecisionResults
 }
 
 const PrecisionTable: FC<PrecisionTableProps> = ({ data }) => {
-    const {clients} = data;
-    const clientNames = Object.keys(clients)
+    const [view, setView] = useState<PrecisionView>(PrecisionView.OVERVIEW)
+
+    const renderView = () => {
+        switch (view) {
+            case PrecisionView.TPR_DETAIL:
+                return (
+                    <div>hello world</div>
+                )
+            default:
+                return (
+                    <Overview data={data}/>
+                )
+        }
+    }
+    const viewOverview = () => setView(PrecisionView.OVERVIEW)
+    const viewTPR = () => setView(PrecisionView.TPR_DETAIL)
 
   return (
-      <table border="1" className="w-1/2 table-auto w-full">
-          <thead>
-          <tr>
-              <th></th>
-              <th>TPR</th>
-              <th>TNR</th>
-              <th>PPV</th>
-          </tr>
-          </thead>
-          <tbody>
-          {clientNames.map((name, index) => {
-              const data = clients[name]
-              const tpr = getTruePositiveRate(data)
-              const tnr = getTrueNegativeRate(data)
-              const ppv = getPositivePredictiveValue(data)
-
-              return (
-                  <tr key={index}>
-                      <td>{name}</td>
-                      <td className={`text-center p-2 bg-opacity-40 ${getPercentageColor(tpr)}`}>{formatPercentage(tpr)}</td>
-                      <td className={`text-center p-2 bg-opacity-40 ${getPercentageColor(tnr)}`}>{formatPercentage(tnr)}</td>
-                      <td className={`text-center p-2 bg-opacity-40 ${getPercentageColor(ppv)}`}>{formatPercentage(ppv)}</td>
-                  </tr>
-              )
-          })}
-          </tbody>
-      </table>
+      <div className="w-1/2">
+          <div className="border rounded-t-lg flex">
+              <TabSelect onClick={viewOverview} isActive={view === PrecisionView.OVERVIEW}>
+                  <p>Overview</p>
+              </TabSelect>
+              <TabSelect onClick={viewTPR} isActive={view === PrecisionView.TPR_DETAIL}>
+                  <p>TPR Precision</p>
+              </TabSelect>
+          </div>
+          <div className="border border-t-0 rounded-b-lg">
+              {renderView()}
+          </div>
+      </div>
   )
 }
 
