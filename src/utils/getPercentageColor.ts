@@ -1,5 +1,4 @@
 const getPercentageColor = (percentage: number | string) => {
-    console.log(percentage)
   switch (true) {
       case (percentage < 75):
           return 'bg-red-500';

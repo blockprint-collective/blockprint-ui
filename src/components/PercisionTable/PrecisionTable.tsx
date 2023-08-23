@@ -4,6 +4,7 @@ import getTruePositiveRate from '@/utils/getTruePositiveRate';
 import getTrueNegativeRate from '@/utils/getTrueNegativeRate';
 import getPositivePredictiveValue from '@/utils/getPositivePredictiveValue';
 import getPercentageColor from '@/utils/getPercentageColor';
+import formatPercentage from '@/utils/formatPercentage';
 
 export interface PrecisionTableProps {
   data: PrecisionResults
@@ -33,9 +34,9 @@ const PrecisionTable: FC<PrecisionTableProps> = ({ data }) => {
               return (
                   <tr key={index}>
                       <td>{name}</td>
-                      <td className={`text-center p-2 bg-opacity-40 ${getPercentageColor(tpr)}`}>{`${tpr} %`}</td>
-                      <td className={`text-center p-2 bg-opacity-40 ${getPercentageColor(tnr)}`}>{`${tnr} %`}</td>
-                      <td className={`text-center p-2 bg-opacity-40 ${getPercentageColor(ppv)}`}>{`${ppv} %`}</td>
+                      <td className={`text-center p-2 bg-opacity-40 ${getPercentageColor(tpr)}`}>{formatPercentage(tpr)}</td>
+                      <td className={`text-center p-2 bg-opacity-40 ${getPercentageColor(tnr)}`}>{formatPercentage(tnr)}</td>
+                      <td className={`text-center p-2 bg-opacity-40 ${getPercentageColor(ppv)}`}>{formatPercentage(ppv)}</td>
                   </tr>
               )
           })}
