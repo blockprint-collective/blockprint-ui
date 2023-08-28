@@ -4,6 +4,7 @@ import {FC, useState} from 'react'
 import {PrecisionResults, PrecisionView} from '@/types'
 import Overview from '@/components/PercisionTable/Views/Overview';
 import TabSelect from '@/components/PercisionTable/TabSelect';
+import TruePositive from '@/components/PercisionTable/Views/TruePositive';
 
 export interface PrecisionTableProps {
   data: PrecisionResults
@@ -16,7 +17,7 @@ const PrecisionTable: FC<PrecisionTableProps> = ({ data }) => {
         switch (view) {
             case PrecisionView.TPR_DETAIL:
                 return (
-                    <div>hello world</div>
+                    <TruePositive data={data}/>
                 )
             default:
                 return (
