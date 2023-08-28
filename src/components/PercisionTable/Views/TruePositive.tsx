@@ -32,7 +32,7 @@ const TruePositive:FC<TruePositiveTableProps> = ({data}) => {
                       const result = cName === rName ? getTruePositiveRate(data) : getComparativeTprRate(data, rName)
 
                       return (
-                          <TableDataCell key={cIndex} data={result}/>
+                          <TableDataCell key={cIndex} animDelay={(cIndex * 25) * index} data={result}/>
                       )
                   })}
               </tr>
