@@ -1,16 +1,15 @@
 import getTruePositiveRate from '@/utils/getTruePositiveRate';
 import getTrueNegativeRate from '@/utils/getTrueNegativeRate';
 import getPositivePredictiveValue from '@/utils/getPositivePredictiveValue';
-import getPercentageColor from '@/utils/getPercentageColor';
-import formatPercentage from '@/utils/formatPercentage';
 import {PrecisionResults} from '@/types';
 import {FC} from 'react';
+import TableDataCell from '@/components/PercisionTable/TableDataCell';
 
-export interface OverviewTablePros {
+export interface OverviewTableProps {
     data: PrecisionResults
 }
 
-const Overview:FC<OverviewTablePros> = ({data}) => {
+const Overview:FC<OverviewTableProps> = ({data}) => {
 const {clients} = data;
 const clientNames = Object.keys(clients)
   return (
@@ -33,9 +32,9 @@ const clientNames = Object.keys(clients)
               return (
                   <tr className="border-t border-gray-100" key={index}>
                       <td className="px-4 py-2">{name}</td>
-                      <td className={`text-center p-2 bg-opacity-40 border-l border-gray-100 ${getPercentageColor(tpr)}`}>{formatPercentage(tpr)}</td>
-                      <td className={`text-center p-2 bg-opacity-40 border-l border-gray-100 ${getPercentageColor(tnr)}`}>{formatPercentage(tnr)}</td>
-                      <td className={`text-center p-2 bg-opacity-40 border-l border-gray-100 ${getPercentageColor(ppv)}`}>{formatPercentage(ppv)}</td>
+                      <TableDataCell data={tpr} />
+                      <TableDataCell data={tnr} />
+                      <TableDataCell data={ppv} />
                   </tr>
               )
           })}
