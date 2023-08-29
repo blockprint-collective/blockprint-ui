@@ -4,6 +4,7 @@ import getPositivePredictiveValue from '@/utils/getPositivePredictiveValue';
 import {PrecisionResults} from '@/types';
 import {FC} from 'react';
 import TableDataCell from '@/components/PercisionTable/TableDataCell';
+import getPercentageColor from '@/utils/getPercentageColor';
 
 export interface OverviewTableProps {
     data: PrecisionResults
@@ -32,9 +33,9 @@ const clientNames = Object.keys(clients)
               return (
                   <tr className="border-t border-gray-100" key={index}>
                       <td className="px-4 py-2">{name}</td>
-                      <TableDataCell animDelay={0} data={tpr} />
-                      <TableDataCell animDelay={(2 * 15) * index} data={tnr} />
-                      <TableDataCell animDelay={(3 * 25) * index} data={ppv} />
+                      <TableDataCell animDelay={0} data={tpr} cellColor={getPercentageColor(tpr)} />
+                      <TableDataCell animDelay={(2 * 15) * index} data={tnr} cellColor={getPercentageColor(tnr)}/>
+                      <TableDataCell animDelay={(3 * 25) * index} data={ppv} cellColor={getPercentageColor(ppv)}/>
                   </tr>
               )
           })}
