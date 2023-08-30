@@ -6,8 +6,7 @@ ENV NODE_ENV=development
 ENV NEXT_TELEMETRY_DISABLED=1
 
 EXPOSE 3000/tcp
-COPY . /app/
+COPY ./start.sh /bin/start.sh
 WORKDIR /app
 
-RUN yarn install
-CMD ["yarn", "run", "dev"]
+CMD ["/bin/start.sh"]

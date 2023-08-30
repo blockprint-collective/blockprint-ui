@@ -17,6 +17,13 @@ yarn dev
 pnpm dev
 ```
 
+Or using Docker:
+
+```
+docker build -t blockprint-ui-dev . -f Dockerfile.dev
+docker run --rm -ti --mount type=bind,source=$PWD,target=/app -p 3000:3000 blockprint-ui-dev
+```
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
