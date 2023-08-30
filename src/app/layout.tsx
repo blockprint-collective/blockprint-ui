@@ -5,7 +5,7 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Block Print',
+  title: 'Blockprint',
   description:
     'Blockprint is a tool for determining which consensus clients produced which blocks on the Ethereum mainnet.',
 }

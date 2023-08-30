@@ -1,6 +1,6 @@
-## BlockPrint
+## Blockprint
 
-Blockprint is a tool for determining which consensus clients produced which blocks on the Ethereum mainnet. It uses machine learning to guess the consensus client for a block, based on the similarity of that block to others in its training data. E.g. When blockprint saw the block at slot 6505122, it determined that this block was most likely produced by Prysm. This is a UI built to give insights on BlockPrint's accuracy and other important metrics.
+Blockprint is a tool for determining which consensus clients produced which blocks on the Ethereum mainnet. It uses machine learning to guess the consensus client for a block, based on the similarity of that block to others in its training data. E.g. When blockprint saw the block at slot 6505122, it determined that this block was most likely produced by Prysm. This is a UI built to give insights on Blockprint's accuracy and other important metrics.
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
