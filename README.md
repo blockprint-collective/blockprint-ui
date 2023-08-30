@@ -22,6 +22,7 @@ Or using Docker:
 ```
 docker build -t blockprint-ui-dev . -f Dockerfile.dev
 docker run --rm -ti --mount type=bind,source=$PWD,target=/app -p 3000:3000 blockprint-ui-dev
+Optionally, you can overwrite the backend with an environment variable: `-e API_ENDPOINT="https://your.endpoint.goes/here"`
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
