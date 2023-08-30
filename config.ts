@@ -1,1 +1,1 @@
-export const defaultApiEndpoint = 'https://api.blockprint.sigp.ioio/confusion';
+export const defaultApiEndpoint = 'https://api.blockprint.sigp.io/confusion';
