@@ -4,6 +4,28 @@ const config: Config = {
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
     extend: {
+      colors: {
+        light: '#fff',
+        light80: 'rgba(255, 255, 255, 0.80)',
+        light50: 'rgba(255, 255, 255, 0.50)',
+        dark: '#131118',
+        purple: '#9B55FF',
+        good: '#7AFB79',
+        fair: '#F1AD39',
+        error: '#FA5A6E'
+      },
+      fontFamily: {
+        openSauce: ['OpenSauce', 'sans-serif'],
+        archivo: ['Archivo', 'sans-serif'],
+      },
+      fontSize: {
+        tiny: '14px',
+        base1: '18px',
+        base2: '20px',
+        base3: '24px',
+        base4: '32px',
+        base5: '48px'
+      },
       keyframes: {
         'fade-in-opacity': {
           '0%': { 'opacity': '0' },
