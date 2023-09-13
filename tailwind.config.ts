@@ -7,8 +7,11 @@ const config: Config = {
       colors: {
         light: '#fff',
         light80: 'rgba(255, 255, 255, 0.80)',
+        light70: 'rgba(255, 255, 255, 0.70)',
         light50: 'rgba(255, 255, 255, 0.50)',
         dark: '#131118',
+        dark100: '#1C1924',
+        dark200: '#353945',
         purple: '#9B55FF',
         good: '#7AFB79',
         fair: '#F1AD39',
@@ -29,7 +32,7 @@ const config: Config = {
       keyframes: {
         'fade-in-opacity': {
           '0%': { 'opacity': '0' },
-          '100%': { 'opacity': '.4' },
+          '100%': { 'opacity': '1' },
         },
         'fade-in-opacity-dark': {
           '0%': { 'opacity': '0' },
@@ -50,6 +53,9 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      boxShadow: {
+        'table': '0px 20px 25px 0px rgba(0, 0, 0, 0.15)',
+      }
     },
   },
 }
