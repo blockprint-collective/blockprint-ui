@@ -31,6 +31,3 @@ export enum PrecisionView {
   OVERVIEW = 'OVERVIEW',
   TPR_DETAIL = 'TPR_DETAIL'
 }
-
-
-export type CellColor = {bg: string, text: string, darkText?: string}
