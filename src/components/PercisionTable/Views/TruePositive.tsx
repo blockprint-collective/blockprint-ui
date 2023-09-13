@@ -5,6 +5,8 @@ import getComparativeTprRate from '@/utils/getComparativeTprRate';
 import TableDataCell from '@/components/PercisionTable/TableDataCell';
 import getPercentageColor from '@/utils/getPercentageColor';
 import getComparativeColor from '@/utils/getComparativeColor';
+import Typography from '@/components/Typography/Typography';
+import Table from '@/components/PercisionTable/Table';
 
 export interface TruePositiveTableProps {
     data: PrecisionResults
@@ -16,19 +18,23 @@ const TruePositive:FC<TruePositiveTableProps> = ({data}) => {
 
 
   return (
-      <table border="1" className="w-full table-auto">
+      <Table>
           <thead>
-          <tr>
+          <tr className="border-b border-dark200">
               <th></th>
               {clientNames.map((name, index) => (
-                  <th key={index} className="p-2 border-l font-normal">{name}</th>
+                  <th key={index} className="p-4 font-normal">
+                      <Typography isBold type="text-tiny">{name}</Typography>
+                  </th>
               ))}
           </tr>
           </thead>
           <tbody>
           {clientNames.map((cName, index) => (
-              <tr className="border-t border-gray-100" key={index}>
-                  <td className="px-4 py-2 font-bold">{cName}</td>
+              <tr key={index}>
+                  <td className="p-4">
+                      <Typography isBold type="text-tiny">{cName}</Typography>
+                  </td>
                   {clientNames.map((rName, cIndex) => {
                       const data = clients[cName]
                       const tprData = getTruePositiveRate(data);
@@ -38,16 +44,15 @@ const TruePositive:FC<TruePositiveTableProps> = ({data}) => {
 
                       return (
                           <TableDataCell key={cIndex} animDelay={(cIndex * 25) * index}
-                                         animation={isTPR ? 'animate-fade-in-opacity-dark' : undefined}
                                          isDarkText={isTPR}
-                                 cellColor={isTPR ? getPercentageColor(tprData) : getComparativeColor(comparativeTpr) }
+                                         cellColor={isTPR ? getPercentageColor(tprData) : getComparativeColor(comparativeTpr) }
                                          data={result}/>
                       )
                   })}
               </tr>
           ))}
           </tbody>
-      </table>
+      </Table>
   )
 }
 
