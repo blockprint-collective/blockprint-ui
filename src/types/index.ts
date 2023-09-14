@@ -29,5 +29,12 @@ export type Precision = {
 
 export enum PrecisionView {
   OVERVIEW = 'OVERVIEW',
-  TPR_DETAIL = 'TPR_DETAIL'
+  TPR_DETAIL = 'TPR_DETAIL',
+  PPV_DETAIL = 'PPV_DETAIL'
+}
+
+export type TableLegend = {
+  error: string,
+  fair: string,
+  good: string
 }
