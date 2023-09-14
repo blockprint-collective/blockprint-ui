@@ -17,6 +17,7 @@
     "@typescript-eslint/parser": "^6.4.0",
     "autoprefixer": "10.4.15",
     "axios": "^1.4.0",
+    "bootstrap-icons": "^1.11.0",
     "eslint": "8.22.0",
     "eslint-config-next": "13.4.17",
     "eslint-config-prettier": "^9.0.0",
