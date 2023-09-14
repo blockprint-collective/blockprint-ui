@@ -1,23 +1,19 @@
 import formatPercentage from '@/utils/formatPercentage';
 import {FC} from 'react';
-import {CellColor} from '@/types';
 
 export interface TableDataCellProps {
     data: number | string
     animDelay?: number
-    cellColor: CellColor
+    cellColor: string
     animation?: string | undefined
     isDarkText?: boolean
 }
 
-const TableDataCell:FC<TableDataCellProps> = ({data, animDelay, isDarkText, cellColor , animation = 'animate-fade-in-opacity'}) => {
-  const {bg, text, darkText} = cellColor;
-
+const TableDataCell:FC<TableDataCellProps> = ({data, animDelay, cellColor , animation = 'animate-fade-in-opacity'}) => {
   return (
-      <td className="relative border-l border-gray-100">
-          <div style={{animationDelay: `${animDelay}ms`}} className={`h-full w-full absolute t-0 opacity-0 l-0 pointer-event-none ${animation} ${bg}`}/>
-          <div className="p-2 text-center">
-              <p className={`animate-fade-in-color ${isDarkText ? darkText : text}`}>
+      <td className="relative">
+          <div className="py-4 px-11 text-center">
+              <p style={{animationDelay: `${animDelay}ms`}} className={`animate-fade-in-color opacity-0 ${animation} ${cellColor}`}>
                   {formatPercentage(data as number)}
               </p>
           </div>
