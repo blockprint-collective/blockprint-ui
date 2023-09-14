@@ -7,6 +7,7 @@ import getPercentageColor from '@/utils/getPercentageColor';
 import getComparativeColor from '@/utils/getComparativeColor';
 import Typography from '@/components/Typography/Typography';
 import Table from '@/components/PercisionTable/Table';
+import TableHeaderCell from '@/components/PercisionTable/TableHeaderCell';
 
 export interface TruePositiveTableProps {
     data: PrecisionResults
@@ -23,9 +24,7 @@ const TruePositive:FC<TruePositiveTableProps> = ({data}) => {
           <tr className="border-b border-dark200">
               <th></th>
               {clientNames.map((name, index) => (
-                  <th key={index} className="p-4 font-normal">
-                      <Typography isBold type="text-tiny">{name}</Typography>
-                  </th>
+                  <TableHeaderCell key={index} text={name}/>
               ))}
           </tr>
           </thead>

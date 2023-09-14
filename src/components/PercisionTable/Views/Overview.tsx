@@ -7,6 +7,7 @@ import TableDataCell from '@/components/PercisionTable/TableDataCell';
 import getPercentageColor from '@/utils/getPercentageColor';
 import Typography from '@/components/Typography/Typography';
 import Table from '@/components/PercisionTable/Table';
+import TableHeaderCell from '@/components/PercisionTable/TableHeaderCell';
 
 export interface OverviewTableProps {
     data: PrecisionResults
@@ -20,15 +21,9 @@ const clientNames = Object.keys(clients)
           <thead>
           <tr className="border-b border-dark200">
               <th></th>
-              <th className="p-4">
-                  <Typography isBold type="text-tiny">TPR</Typography>
-              </th>
-              <th className="p-4">
-                  <Typography isBold type="text-tiny">TNR</Typography>
-              </th>
-              <th className="p-4">
-                  <Typography isBold type="text-tiny">PPV</Typography>
-              </th>
+              <TableHeaderCell text="TPR" isInfo/>
+              <TableHeaderCell text="TNR" isInfo/>
+              <TableHeaderCell text="PPV" isInfo/>
           </tr>
           </thead>
           <tbody>
