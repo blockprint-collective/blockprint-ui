@@ -36,7 +36,7 @@ const PrecisionTable: FC<PrecisionTableProps> = ({ data }) => {
     const viewPPV = () => setView(PrecisionView.PPV_DETAIL)
 
   return (
-      <div className="w-full flex justify-between">
+      <div className="w-screen px-32 flex justify-between">
           {renderView()}
           <div className="space-y-4 w-36">
               <Typography>Charts</Typography>
