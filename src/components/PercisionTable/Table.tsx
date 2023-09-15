@@ -16,7 +16,7 @@ export interface TableProps {
 }
 
 const Table:FC<TableProps> = ({children, className, legend = defaultLegend}) => {
-    const classes = addClassString('border bg-dark100 border-dark200 shadow rounded-lg', [className])
+    const classes = addClassString('border bg-dark100 border-dark200 shadow rounded-lg h-fit', [className])
   return (
       <div className={classes}>
           <table border="1" className="w-full table-auto">

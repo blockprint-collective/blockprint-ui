@@ -17,6 +17,12 @@ const config: Config = {
         fair: '#F1AD39',
         error: '#FA5A6E'
       },
+      lineHeight: {
+        title: '56px',
+      },
+      letterSpacing: {
+        title: '-2.4px'
+      },
       fontFamily: {
         openSauce: ['OpenSauce', 'sans-serif'],
         archivo: ['Archivo', 'sans-serif'],
