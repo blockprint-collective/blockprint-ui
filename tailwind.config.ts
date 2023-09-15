@@ -12,6 +12,7 @@ const config: Config = {
         dark: '#131118',
         dark100: '#1C1924',
         dark200: '#353945',
+        dark300: '#2F2B3C',
         purple: '#9B55FF',
         good: '#7AFB79',
         fair: '#F1AD39',
@@ -21,7 +22,8 @@ const config: Config = {
         title: '56px',
       },
       letterSpacing: {
-        title: '-2.4px'
+        title: '-2.4px',
+        subTitle: '-0.4px'
       },
       fontFamily: {
         openSauce: ['OpenSauce', 'sans-serif'],
