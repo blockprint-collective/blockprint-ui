@@ -2,6 +2,7 @@ import { getConfusion } from '@/api/blockprint'
 import PrecisionTable from '@/components/PercisionTable/PrecisionTable'
 import TopBar from '@/components/TopBar/TopBar';
 import Header from '@/components/Header/Header';
+import HowItWorks from '@/components/HowItWorks/HowItWorks';
 
 export default async function Home() {
   const data = await getConfusion()
@@ -11,6 +12,7 @@ export default async function Home() {
         <TopBar/>
         <Header/>
         <PrecisionTable data={data} />
+        <HowItWorks/>
     </main>
   )
 }
