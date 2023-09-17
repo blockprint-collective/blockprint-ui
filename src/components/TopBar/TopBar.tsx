@@ -4,7 +4,7 @@ import {DISCORD_URL, GITHUB_URL} from '@/constants';
 
 const TopBar = () => {
     return (
-        <div className="w-full border-b border-dark200 h-12 flex justify-between items-center px-32">
+        <div className="w-full bg-dark border-b border-dark200 h-12 flex justify-between items-center px-32">
             <Typography type="text-base2" isBold>Blockprint.</Typography>
             <div className="flex space-x-4">
                 <div className="h-full cursor-pointer">
