@@ -40,12 +40,12 @@ body {
 
 
 .x-padding {
-    @apply px-2
+    @apply px-4
 }
 
 @media (min-width: 1024px) {
     .x-padding {
-        @apply px-32;
+        @apply px-28;
     }
 }
 
