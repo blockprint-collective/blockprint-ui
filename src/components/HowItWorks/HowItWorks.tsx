@@ -1,9 +1,11 @@
 import Typography from '@/components/Typography/Typography';
-import InfoSelect from '@/components/InfoSelect/InfoSelect';
+import OverviewExplained from '@/components/Explainations/OverviewExplained';
+import TprExplained from '@/components/Explainations/TprExplained';
+import PpvExplained from '@/components/Explainations/PpvExplained';
 
 const HowItWorks = () => {
   return (
-      <div className="w-full px-32 py-48 flex justify-between">
+      <div className="w-full x-padding py-8 lg:py-48 flex flex-col lg:flex-row lg:justify-between space-y-8 lg:space-y-0">
           <div className="max-w-lg space-y-4">
               <Typography type="text-base4" className="tracking-subTitle leading-10">
                   Blockprint is a tool for determining which consensus clients produced which blocks on the Ethereum mainnet.
@@ -14,9 +16,11 @@ const HowItWorks = () => {
           </div>
           <div className="flex-1 max-w-xl space-y-4">
               <Typography isBold type="text-base1">How does it work?</Typography>
-              <InfoSelect text="Accuracy Overview"/>
-              <InfoSelect text="True Positive Rate"/>
-              <InfoSelect text="Positive Predictive Value"/>
+              <div className="space-y-4">
+                  <OverviewExplained/>
+                  <TprExplained/>
+                  <PpvExplained/>
+              </div>
           </div>
       </div>
   )

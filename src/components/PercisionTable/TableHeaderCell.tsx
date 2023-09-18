@@ -11,7 +11,7 @@ export interface TableHeaderCellProps {
 const TableHeaderCell:FC<TableHeaderCellProps> = ({text, onClick, isInfo}) => {
   const classes = addClassString('flex space-x-2 w-full justify-center', [isInfo && 'cursor-pointer'])
   return (
-      <th className="p-4">
+      <th className="p-2 lg:p-4">
           <div onClick={onClick} className={classes}>
               <Typography isBold type="text-tiny">{text}</Typography>
               {isInfo && <i className="bi bi-question-circle text-tiny text-light80"/>}

@@ -17,7 +17,7 @@ const Overview:FC<OverviewTableProps> = ({data}) => {
 const {clients} = data;
 const clientNames = Object.keys(clients)
   return (
-      <Table className="w-1/2">
+      <Table className="max-w-md lg:max-w-xl">
           <thead>
           <tr className="border-b border-dark200">
               <th></th>

@@ -19,7 +19,7 @@ const TruePositive:FC<TruePositiveTableProps> = ({data}) => {
 
 
   return (
-      <Table>
+      <Table className="max-w-table">
           <thead>
           <tr className="border-b border-dark200">
               <th></th>
@@ -31,7 +31,7 @@ const TruePositive:FC<TruePositiveTableProps> = ({data}) => {
           <tbody>
           {clientNames.map((cName, index) => (
               <tr key={index}>
-                  <td className="p-4">
+                  <td className="p-2 lg:p-4">
                       <Typography isBold type="text-tiny">{cName}</Typography>
                   </td>
                   {clientNames.map((rName, cIndex) => {

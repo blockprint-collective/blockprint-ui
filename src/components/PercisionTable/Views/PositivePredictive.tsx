@@ -19,7 +19,7 @@ const PositivePredictive:FC<PositivePredictiveProps> = ({data}) => {
 
 
     return (
-        <Table>
+        <Table className="max-w-table">
             <thead>
             <tr className="border-b border-dark200">
                 <th></th>
