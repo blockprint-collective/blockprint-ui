@@ -5,6 +5,7 @@ import Header from '@/components/Header/Header';
 import HowItWorks from '@/components/HowItWorks/HowItWorks';
 import background from '../assets/image/blockprint-bg.png'
 import Image from 'next/image';
+import Footer from '@/components/Footer/Footer';
 
 export default async function Home() {
   const data = await getConfusion()
@@ -17,6 +18,7 @@ export default async function Home() {
             <Header/>
             <PrecisionTable data={data} />
             <HowItWorks/>
+            <Footer/>
         </div>
     </main>
   )
