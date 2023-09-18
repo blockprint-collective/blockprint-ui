@@ -13,7 +13,7 @@ const SigmaPrime:FC<SigmaPrimeProps> = ({className}) => {
   return (
       <a target="_blank" href="https://sigmaprime.io/" rel="noreferrer">
           <div className={classes}>
-              <Image src={SigP}/>
+              <Image alt="Sigp" className="w-10" src={SigP}/>
               <Typography type="text-tiny">Developed & Maintained <br/> by <span className="font-bold">Sigma Prime</span></Typography>
           </div>
       </a>

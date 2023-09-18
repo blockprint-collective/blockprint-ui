@@ -4,7 +4,7 @@ const Header = () => {
   return (
       <div className="w-full py-16 x-padding">
           <Typography color="text-light80" className="tracking-tighter" fontWeight="font-light" type="text-base2" family="font-archivo">Machine Learning for Ethereum Consensus</Typography>
-          <Typography className="max-w-xl tracking-title leading-title" type="text-base5">
+          <Typography className="max-w-2xl tracking-title leading-title" type="text-base5">
               Blockprint. Shaping the Future of Blockchain Transparency
           </Typography>
           <div className="flex space-x-2">

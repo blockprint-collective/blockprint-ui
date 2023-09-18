@@ -12,7 +12,7 @@ export default async function Home() {
 
   return (
     <main className='bg-dark h-screen w-screen'>
-        <Image layout="fill" className="absolute left-0 top-0 z-0" src={background} alt=""/>
+        <Image className="absolute left-0 top-0 z-0 h-screen" src={background} alt=""/>
         <div className="relative h-screen w-screen z-10">
             <TopBar/>
             <Header/>

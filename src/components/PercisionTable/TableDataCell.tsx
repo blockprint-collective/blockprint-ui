@@ -1,5 +1,6 @@
 import formatPercentage from '@/utils/formatPercentage';
 import {FC} from 'react';
+import addClassString from '@/utils/addClassString';
 
 export interface TableDataCellProps {
     data: number | string
@@ -10,10 +11,11 @@ export interface TableDataCellProps {
 }
 
 const TableDataCell:FC<TableDataCellProps> = ({data, animDelay, cellColor , animation = 'animate-fade-in-opacity'}) => {
+    const classes = addClassString('animate-fade-in-color opacity-0 font-archivo leading-6', [animation, cellColor])
   return (
       <td className="relative">
           <div className="py-1 xl:py-4 px-1 xl:px-8 text-center">
-              <p style={{animationDelay: `${animDelay}ms`}} className={`animate-fade-in-color opacity-0 ${animation} ${cellColor}`}>
+              <p style={{animationDelay: `${animDelay}ms`}} className={classes}>
                   {formatPercentage(data as number)}
               </p>
           </div>

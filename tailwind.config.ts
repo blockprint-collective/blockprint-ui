@@ -27,8 +27,8 @@ const config: Config = {
         subTitle: '-0.4px'
       },
       fontFamily: {
-        openSauce: ['OpenSauce', 'sans-serif'],
-        archivo: ['Archivo', 'sans-serif'],
+        openSauce: 'var(--open-sauce)',
+        archivo: 'var(--archivo)',
       },
       fontSize: {
         tiny: '14px',
