@@ -37,3 +37,26 @@ body {
     src: url("../assets/Fonts/Archivo/Archivo-Regular.ttf");
     font-weight: 400;
 }
+
+
+.x-padding {
+    @apply px-2
+}
+
+@media (min-width: 1024px) {
+    .x-padding {
+        @apply px-32;
+    }
+}
+
+@media (min-width: 1280px) {
+    .x-padding {
+        @apply px-40;
+    }
+}
+
+@media (min-width: 1536px) {
+    .x-padding {
+        @apply px-72;
+    }
+}
