@@ -12,7 +12,7 @@ export interface TableDataCellProps {
 const TableDataCell:FC<TableDataCellProps> = ({data, animDelay, cellColor , animation = 'animate-fade-in-opacity'}) => {
   return (
       <td className="relative">
-          <div className="py-1 lg:py-4 px-1 lg:px-8 text-center">
+          <div className="py-1 xl:py-4 px-1 xl:px-8 text-center">
               <p style={{animationDelay: `${animDelay}ms`}} className={`animate-fade-in-color opacity-0 ${animation} ${cellColor}`}>
                   {formatPercentage(data as number)}
               </p>

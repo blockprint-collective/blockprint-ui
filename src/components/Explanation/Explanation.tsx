@@ -19,7 +19,7 @@ const Explanation:FC<ExplanationProps> = ({title, texts}) => {
           <SideModal onClose={closeModal} isOpen={isOpen}>
               <div className="space-y-10">
                   <Typography type="text-base6" isBold className="italic leading-title2" isCapitalize>{title}</Typography>
-                  <div className="space-y-4 pr-16">
+                  <div className="space-y-4 lg:pr-16">
                       {texts.map((info, index) => (
                           <Typography key={index} fontWeight="font-light" type="text-base1" className="leading-5">
                               {info}
