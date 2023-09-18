@@ -6,7 +6,7 @@ import PpvExplained from '@/components/Explainations/PpvExplained';
 const HowItWorks = () => {
   return (
       <div className="w-full x-padding py-8 lg:py-48 flex flex-col lg:flex-row lg:justify-between space-y-8 lg:space-y-0">
-          <div className="max-w-xl space-y-4">
+          <div className="max-w-lg pr-0 md:pr-12 xl:pr-0 xl:max-w-xl space-y-4">
               <Typography type="text-base4" className="tracking-subTitle leading-10">
                   Blockprint is a tool for determining which consensus clients produced which blocks on the Ethereum mainnet.
               </Typography>
