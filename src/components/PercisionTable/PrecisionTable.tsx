@@ -47,7 +47,7 @@ const PrecisionTable: FC<PrecisionTableProps> = ({ data }) => {
               {renderView()}
           </div>
           <div className="space-y-4 w-36 order-1 md:order-2 mb-8 lg:mb-0 relative">
-              <Typography>Charts</Typography>
+              <Typography isBold>Charts</Typography>
               <div>
                    <TabSelect text="Overview" onClick={viewOverview} isActive={chartView === PrecisionView.OVERVIEW || !chartView}/>
                    <TabSelect text="TPR Precision" onClick={viewTPR} isActive={chartView === PrecisionView.TPR_DETAIL} />
