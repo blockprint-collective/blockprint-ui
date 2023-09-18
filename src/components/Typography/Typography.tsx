@@ -42,6 +42,7 @@ export interface TypographyProps {
   children: ReactNode | ReactNode[]
   as?: TagsSupported
   type?: TypographyType
+  style?: any
   isBold?: boolean
   isUpperCase?: boolean
   isCapitalize?: boolean
