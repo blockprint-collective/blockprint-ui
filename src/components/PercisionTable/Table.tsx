@@ -16,14 +16,14 @@ export interface TableProps {
 }
 
 const Table:FC<TableProps> = ({children, className, legend = defaultLegend}) => {
-    const classes = addClassString('border bg-dark100 border-dark200 shadow rounded-lg h-fit', [className])
+    const classes = addClassString('border bg-dark100 border-dark200 shadow rounded-lg h-fit overflow-scroll', [className])
   return (
       <div className={classes}>
-          <table border="1" className="w-full table-auto">
+          <table border="1" className="w-full table-auto border-b border-dark200">
               {children}
           </table>
-          <div className="w-full flex justify-between p-3 border-t border-dark200">
-              <Typography type="text-tiny" color="text-light70">
+          <div className="w-full flex justify-between p-3">
+              <Typography className="hidden lg:block" type="text-tiny" color="text-light70">
                   Updated daily
               </Typography>
               {legend && (

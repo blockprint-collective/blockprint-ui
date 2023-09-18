@@ -36,9 +36,11 @@ const PrecisionTable: FC<PrecisionTableProps> = ({ data }) => {
     const viewPPV = () => setView(PrecisionView.PPV_DETAIL)
 
   return (
-      <div className="w-screen px-32 flex justify-between">
-          {renderView()}
-          <div className="space-y-4 w-36">
+      <div className="w-screen px-4 lg:px-32 flex flex-col md:flex-row justify-between">
+          <div className="order-2 md:oder-1 flex-1">
+              {renderView()}
+          </div>
+          <div className="space-y-4 w-36 order-1 md:order-2 mb-8 lg:mb-0">
               <Typography>Charts</Typography>
               <div>
                    <TabSelect text="Overview" onClick={viewOverview} isActive={view === PrecisionView.OVERVIEW}/>

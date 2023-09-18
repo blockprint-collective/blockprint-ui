@@ -1,4 +1,5 @@
 import { FC, ReactNode, createElement } from 'react'
+import addClassString from '@/utils/addClassString';
 
 const ELEMENT = {
   h1: 'h1',
@@ -62,14 +63,19 @@ const Typography: FC<TypographyProps> = ({
   family = 'font-openSauce',
   ...props
 }) => {
+  const classes = addClassString('m-0', [
+      className,
+      type,
+      family,
+      color,
+      isBold ? 'font-bold' : fontWeight,
+      isUpperCase ? 'uppercase' : isCapitalize ? 'capitalize' : 'normal-case'
+  ])
   return createElement(
     as ? ELEMENT[as] : ELEMENT.p,
     {
       ...props,
-      className: `${className || ''} ${type} ${
-        isUpperCase ? 'uppercase' : isCapitalize ? 'capitalize' : 'normal-case'
-      } m-0 ${color} ${family} ${isBold ? 'font-bold' : fontWeight}
-`,
+      className: classes,
     },
     children,
   )

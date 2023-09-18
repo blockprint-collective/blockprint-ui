@@ -20,6 +20,7 @@ const config: Config = {
       },
       lineHeight: {
         title: '56px',
+        title2: '61.6px'
       },
       letterSpacing: {
         title: '-2.4px',
@@ -35,7 +36,12 @@ const config: Config = {
         base2: '20px',
         base3: '24px',
         base4: '32px',
-        base5: '48px'
+        base5: '48px',
+        base6: '56px'
+      },
+      maxWidth: {
+        modal: '620px',
+        table: '795px'
       },
       keyframes: {
         'fade-in-opacity': {
