@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image';
-import background from '@/assets/image/blockprint-bg.png';
+import background from '../../assets/image/blockprint-bg.png';
 
 const Background = () => {
   return (
