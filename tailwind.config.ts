@@ -31,6 +31,7 @@ const config: Config = {
         archivo: 'var(--archivo)',
       },
       fontSize: {
+        xs: '11px',
         tiny: '14px',
         base1: '18px',
         base2: '20px',
@@ -40,6 +41,7 @@ const config: Config = {
         base6: '56px'
       },
       maxWidth: {
+        'lg1.5': '550px',
         modal: '620px',
         table: '795px'
       },
@@ -48,10 +50,6 @@ const config: Config = {
           '0%': { 'opacity': '0' },
           '100%': { 'opacity': '1' },
         },
-        'fade-in-opacity-dark': {
-          '0%': { 'opacity': '0' },
-          '100%': { 'opacity': '.65' },
-        },
         'fade-in-color': {
           '0%': { color: 'black' },
           '100%': { color: 'auto' },
@@ -59,7 +57,6 @@ const config: Config = {
       },
       animation: {
         'fade-in-opacity': 'fade-in-opacity 1s forwards',
-        'fade-in-opacity-dark': 'fade-in-opacity-dark 1s forwards',
         'fade-in-color': 'fade-in-color 1s forwards',
       },
       backgroundImage: {
