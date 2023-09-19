@@ -23,6 +23,7 @@ const Footer = () => {
     const viewOverview = () => moveToTable(PrecisionView.OVERVIEW)
     const viewTpr = () => moveToTable(PrecisionView.TPR_DETAIL)
     const viewPpv = () => moveToTable(PrecisionView.PPV_DETAIL)
+    const viewDiversity = () => moveToTable(PrecisionView.DIVERSITY)
 
 
   return (
@@ -44,9 +45,9 @@ const Footer = () => {
                       <li className="cursor-pointer" onClick={viewPpv}>
                           <Typography color="text-light80">PPV Precision</Typography>
                       </li>
-                      {/* <li>*/}
-                      {/*    <Typography color="text-light80">Diversity</Typography>*/}
-                      {/* </li>*/}
+                       <li className="cursor-pointer" onClick={viewDiversity}>
+                          <Typography color="text-light80">Diversity</Typography>
+                       </li>
                   </ul>
               </div>
               <div>
