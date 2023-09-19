@@ -25,9 +25,11 @@ export type TypographyColor =
   | 'text-purple'
   | 'text-good'
   | 'text-fair'
-  | 'text-error';
+  | 'text-error'
+    | 'text-dark';
 
 export type TypographyType =
+  | 'text-xs'
   | 'text-tiny'
   | 'text-base'
   | 'text-base1'
