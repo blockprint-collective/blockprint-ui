@@ -3,8 +3,8 @@ import Typography from '@/components/Typography/Typography';
 const Header = () => {
   return (
       <div className="w-full py-16 x-padding">
-          <Typography color="text-light80" className="tracking-tighter" fontWeight="font-light" type="text-base2" family="font-archivo">Machine Learning for Ethereum Consensus</Typography>
-          <Typography className="max-w-2xl tracking-title leading-title" type="text-base5">
+          <Typography color="text-light80" className="tracking-tighter lg:text-base2" fontWeight="font-light" type="text-base" family="font-archivo">Machine Learning for Ethereum Consensus</Typography>
+          <Typography className="max-w-lg lg:max-w-2xl tracking-title leading-9 lg:leading-title lg:text-base5" type="text-base4">
               Blockprint. Shaping the Future of Blockchain Transparency
           </Typography>
           <div className="flex space-x-2">

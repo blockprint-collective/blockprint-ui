@@ -10,10 +10,10 @@ export interface TabSelect {
 const TabSelect:FC<TabSelect> = ({onClick, isActive, text}) => {
   return (
       <div onClick={onClick} className="flex-1 flex items-center space-x-2 mb-1 text-center cursor-pointer">
-          <Typography color={!isActive ? 'text-light50' : 'text-light'}>
+          <Typography className="whitespace-nowrap" color={!isActive ? 'text-light50' : 'text-light'}>
               {text}
           </Typography>
-          {isActive && <hr className="h-.5 w-4 bg-light"/>}
+          {isActive && <hr className="h-.5 w-4 bg-light hidden lg:block"/>}
       </div>
   )
 }
