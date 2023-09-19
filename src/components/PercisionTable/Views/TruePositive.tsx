@@ -19,7 +19,7 @@ const TruePositive:FC<TruePositiveTableProps> = ({data}) => {
 
 
   return (
-      <Table className="max-w-table">
+      <Table className="max-w-lg1.5 lg:max-w-xl xl:max-w-table">
           <thead>
           <tr className="border-b border-dark200">
               <th></th>

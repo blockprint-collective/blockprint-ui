@@ -2,6 +2,7 @@ import {FC, ReactNode} from 'react';
 import Typography from '@/components/Typography/Typography';
 import addClassString from '@/utils/addClassString';
 import {TableLegend} from '@/types';
+import LegendItem from '@/components/PercisionTable/LegendItem';
 
 const defaultLegend = {
     error: 'Danger',
@@ -11,15 +12,18 @@ const defaultLegend = {
 
 export interface TableProps {
     children: ReactNode | ReactNode[]
+    tableClasses?: string
     className?: string
     legend?: TableLegend
 }
 
-const Table:FC<TableProps> = ({children, className, legend = defaultLegend}) => {
+const Table:FC<TableProps> = ({children, className, tableClasses, legend = defaultLegend}) => {
     const classes = addClassString('border bg-dark100 border-dark200 shadow rounded-lg h-fit overflow-scroll', [className])
+    const tableClass = addClassString('w-full table-auto border-b border-dark200', [tableClasses])
+
   return (
       <div className={classes}>
-          <table border="1" className="w-full table-auto border-b border-dark200">
+          <table border="1" className={tableClass}>
               {children}
           </table>
           <div className="w-full flex justify-between p-3">
@@ -27,19 +31,10 @@ const Table:FC<TableProps> = ({children, className, legend = defaultLegend}) => 
                   Updated daily
               </Typography>
               {legend && (
-                  <div className="flex space-x-4">
-                      <div className="flex space-x-2 items-center">
-                          <div className="w-2 h-2 bg-error rounded-sm"/>
-                          <Typography type="text-tiny" color="text-error">{legend.error}</Typography>
-                      </div>
-                      <div className="flex space-x-2 items-center">
-                          <div className="w-2 h-2 bg-fair rounded-sm"/>
-                          <Typography type="text-tiny" color="text-fair">{legend.fair}</Typography>
-                      </div>
-                      <div className="flex space-x-2 items-center">
-                          <div className="w-2 h-2 bg-good rounded-sm"/>
-                          <Typography type="text-tiny" color="text-good">{legend.good}</Typography>
-                      </div>
+                  <div className="flex space-x-4 overflow-scroll">
+                      <LegendItem color="error" text={legend.error}/>
+                      <LegendItem color="fair" text={legend.fair}/>
+                      <LegendItem color="good" text={legend.good}/>
                   </div>
               )}
           </div>

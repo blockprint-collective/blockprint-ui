@@ -7,6 +7,15 @@ export type PrecisionResults = {
   nodes: PrecisionNode[]
 }
 
+export type DiversityResults = {
+  [key: string]: number
+}
+
+export type ClientDiversityResult = {
+  client: string,
+  percentage: string
+}
+
 export type PrecisionClient = {
   [key: string]: Precision
 }
@@ -30,7 +39,8 @@ export type Precision = {
 export enum PrecisionView {
   OVERVIEW = 'OVERVIEW',
   TPR_DETAIL = 'TPR_DETAIL',
-  PPV_DETAIL = 'PPV_DETAIL'
+  PPV_DETAIL = 'PPV_DETAIL',
+  DIVERSITY = 'DIVERSITY'
 }
 
 export type TableLegend = {
