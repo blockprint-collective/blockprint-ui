@@ -48,3 +48,11 @@ export type TableLegend = {
   fair: string,
   good: string
 }
+
+export type ResourceData = {
+  title: string,
+  site: string,
+  docs: string,
+  github: string,
+  discord: string,
+}
