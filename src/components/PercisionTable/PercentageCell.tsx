@@ -19,6 +19,12 @@ const PercentageCell:FC<PercentageCellProps> = ({data, animDelay}) => {
       }, animDelay * 100)
   }, [animDelay, percentage])
 
+    useEffect(() => {
+        return () => {
+            setValue(0)
+        }
+    }, [])
+
   return (
       <tr>
           <td>

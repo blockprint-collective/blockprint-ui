@@ -5,9 +5,9 @@ import {TableLegend} from '@/types';
 import LegendItem from '@/components/PercisionTable/LegendItem';
 
 const defaultLegend = {
-    error: 'Danger',
-    fair: 'Caution',
-    good: 'Great'
+    error: 'Poor',
+    fair: 'Fair',
+    good: 'Good'
 }
 
 export interface TableProps {
