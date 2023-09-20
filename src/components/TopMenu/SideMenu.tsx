@@ -10,11 +10,20 @@ import {PrecisionView} from '@/types';
 
 export interface SideMenuProps {
     isOpen: boolean,
-    onClose: () => void
+    onClose: () => void,
+    onOpenResources: () => void
 }
 
-const SideMenu:FC<SideMenuProps> = ({isOpen, onClose}) => {
+const SideMenu:FC<SideMenuProps> = ({isOpen, onClose, onOpenResources}) => {
     const { viewOverview, viewTPR, viewPPV, viewDiversity } = useTableNav()
+
+    const viewResources = () => {
+        onClose();
+
+        setTimeout(() => {
+            onOpenResources();
+        }, 500)
+    }
 
 
     const selectNav = (view: PrecisionView) => {
@@ -65,7 +74,7 @@ const SideMenu:FC<SideMenuProps> = ({isOpen, onClose}) => {
                   <li onClick={selectDiversity}>
                       <Typography type="text-base4">Diversity</Typography>
                   </li>
-                  <li>
+                  <li onClick={viewResources}>
                       <hr className="w-full my-8 border-dark300" />
                       <Typography type="text-base4">Client Resources</Typography>
                   </li>
