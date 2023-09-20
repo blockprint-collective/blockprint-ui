@@ -8,8 +8,8 @@ import TruePositive from '@/components/PercisionTable/Views/TruePositive';
 import Typography from '@/components/Typography/Typography';
 import PositivePredictive from '@/components/PercisionTable/Views/PositivePredictive';
 import SigmaPrime from '@/components/SigmaPrime/SigmaPrime';
-import {useRouter, useSearchParams} from 'next/navigation';
 import Diversity from '@/components/PercisionTable/Views/Diversity';
+import useTableNav from '@/hooks/useTableNav';
 
 export interface PrecisionTableProps {
   confusion: PrecisionResults
@@ -17,13 +17,11 @@ export interface PrecisionTableProps {
 }
 
 const PrecisionTable: FC<PrecisionTableProps> = ({ confusion, diversity }) => {
-    const searchParams = useSearchParams()
-    const router = useRouter()
-    const chartView = searchParams.get('chart')?.toUpperCase()
     const clientList = Object.keys(confusion.clients)
+    const { currentView, viewOverview, viewTPR, viewPPV, viewDiversity } = useTableNav()
 
     const renderView = () => {
-        switch (chartView) {
+        switch (currentView) {
             case PrecisionView.TPR_DETAIL:
                 return (
                     <TruePositive data={confusion}/>
@@ -42,12 +40,6 @@ const PrecisionTable: FC<PrecisionTableProps> = ({ confusion, diversity }) => {
                 )
         }
     }
-    const viewTable = (table: PrecisionView) => router.push(`?chart=${table.toLowerCase()}`, {scroll: false})
-
-    const viewOverview = () => viewTable(PrecisionView.OVERVIEW)
-    const viewTPR = () => viewTable(PrecisionView.TPR_DETAIL)
-    const viewPPV = () => viewTable(PrecisionView.PPV_DETAIL)
-    const viewDiversity = () => viewTable(PrecisionView.DIVERSITY)
 
   return (
       <div className="w-screen x-padding flex flex-col md:flex-row justify-between">
@@ -59,10 +51,10 @@ const PrecisionTable: FC<PrecisionTableProps> = ({ confusion, diversity }) => {
                   <Typography isBold>Charts</Typography>
               </div>
               <div className="flex space-x-4 md:flex-col md:space-x-0 overflow-x-auto">
-                   <TabSelect text="Overview" onClick={viewOverview} isActive={chartView === PrecisionView.OVERVIEW || !chartView}/>
-                   <TabSelect text="TPR Precision" onClick={viewTPR} isActive={chartView === PrecisionView.TPR_DETAIL} />
-                  <TabSelect text="PPV Precision" onClick={viewPPV} isActive={chartView === PrecisionView.PPV_DETAIL} />
-                  <TabSelect text="Client Diversity" onClick={viewDiversity} isActive={chartView === PrecisionView.DIVERSITY} />
+                   <TabSelect text="Overview" onClick={viewOverview} isActive={currentView === PrecisionView.OVERVIEW || !currentView}/>
+                   <TabSelect text="TPR Precision" onClick={viewTPR} isActive={currentView === PrecisionView.TPR_DETAIL} />
+                  <TabSelect text="PPV Precision" onClick={viewPPV} isActive={currentView === PrecisionView.PPV_DETAIL} />
+                  <TabSelect text="Client Diversity" onClick={viewDiversity} isActive={currentView === PrecisionView.DIVERSITY} />
               </div>
               <SigmaPrime className="hidden xl:flex absolute bottom-0 right-0"/>
             </div>
