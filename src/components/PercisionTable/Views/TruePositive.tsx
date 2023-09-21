@@ -8,6 +8,8 @@ import getComparativeColor from '@/utils/getComparativeColor';
 import Typography from '@/components/Typography/Typography';
 import Table from '@/components/PercisionTable/Table';
 import TableHeaderCell from '@/components/PercisionTable/TableHeaderCell';
+import {TPR_EXPLAINED} from '@/constants';
+import InfoModal from '@/components/PercisionTable/InfoModal';
 
 export interface TruePositiveTableProps {
     data: PrecisionResults
@@ -22,7 +24,9 @@ const TruePositive:FC<TruePositiveTableProps> = ({data}) => {
       <Table className="max-w-lg1.5 lg:max-w-xl xl:max-w-table">
           <thead>
           <tr className="border-b border-dark200">
-              <th></th>
+              <th>
+                  <InfoModal title={TPR_EXPLAINED.title} texts={TPR_EXPLAINED.texts}/>
+              </th>
               {clientNames.map((name, index) => (
                   <TableHeaderCell key={index} text={name}/>
               ))}
