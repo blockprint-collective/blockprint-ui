@@ -1,8 +1,7 @@
 'use client'
-import SideModal from '@/components/SideModal/SideModal';
-import Typography from '@/components/Typography/Typography';
 import InfoSelect from '@/components/InfoSelect/InfoSelect';
 import {FC, useState} from 'react';
+import ExplainModal from '@/components/ExplainModal/ExplainModal';
 
 export interface ExplanationProps {
     title: string,
@@ -16,18 +15,7 @@ const Explanation:FC<ExplanationProps> = ({title, texts}) => {
 
   return (
       <div>
-          <SideModal onClose={closeModal} isOpen={isOpen}>
-              <div className="space-y-10">
-                  <Typography type="text-base6" isBold className="italic leading-title2" isCapitalize>{title}</Typography>
-                  <div className="space-y-4 lg:pr-16">
-                      {texts.map((info, index) => (
-                          <Typography key={index} fontWeight="font-light" type="text-base1" className="leading-5">
-                              {info}
-                          </Typography>
-                      ))}
-                  </div>
-              </div>
-          </SideModal>
+          <ExplainModal title={title} texts={texts} isOpen={isOpen} onClose={closeModal}/>
           <InfoSelect onClick={openModal} text={title}/>
       </div>
   )
