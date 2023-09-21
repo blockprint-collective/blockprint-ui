@@ -29,22 +29,23 @@ const PositivePredictive:FC<PositivePredictiveProps> = ({data}) => {
             </tr>
             </thead>
             <tbody>
-            {clientNames.map((cName, index) => (
+            {clientNames.map((rName, index) => (
                 <tr key={index}>
                     <td className="p-2 lg:p-4">
-                        <Typography isBold type="text-tiny">{cName}</Typography>
+                        <Typography isBold type="text-tiny">{rName}</Typography>
                     </td>
-                    {clientNames.map((rName, cIndex) => {
-                        const data = clients[cName]
-                        const ppvData = getPositivePredictiveValue(data);
-                        const isTPR = cName === rName;
-                        const comparativePpv = getComparativePpvRate(data, rName);
-                        const result = isTPR ? ppvData : comparativePpv
+                    {clientNames.map((cName, cIndex) => {
+                        const rowData = clients[rName];
+                        const colData = clients[cName];
+                        const ppvData = getPositivePredictiveValue(rowData);
+                        const isDiag = cName === rName;
+                        const comparativePpv = getComparativePpvRate(rowData, colData, rName);
+                        const result = isDiag ? ppvData : comparativePpv;
 
                         return (
                             <TableDataCell key={cIndex} animDelay={(cIndex * 25) * index}
-                                           isDarkText={isTPR}
-                                           cellColor={isTPR ? getPercentageColor(ppvData) : getComparativeColor(comparativePpv) }
+                                           isDarkText={isDiag}
+                                           cellColor={isDiag ? getPercentageColor(ppvData) : getComparativeColor(comparativePpv) }
                                            data={result}/>
                         )
                     })}
