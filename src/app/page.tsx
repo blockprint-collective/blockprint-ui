@@ -7,6 +7,7 @@ import Footer from '@/components/Footer/Footer';
 import getEpochRange from '@/utils/getEpochRange';
 import Background from '@/components/Background/Background';
 import SigmaPrime from '@/components/SigmaPrime/SigmaPrime';
+import ShoutOuts from '@/components/ShoutOuts/ShoutOuts';
 
 export default async function Home() {
   const confusion = await getConfusion()
@@ -23,6 +24,7 @@ export default async function Home() {
             <div className="lg:hidden x-padding py-12">
                 <SigmaPrime/>
             </div>
+            <ShoutOuts/>
             <HowItWorks/>
             <Footer/>
         </div>
