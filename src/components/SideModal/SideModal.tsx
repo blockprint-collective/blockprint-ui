@@ -13,7 +13,7 @@ export interface SideModalProps {
 const SideModal:FC<SideModalProps> = ({isOpen, onClose, children, isArrowIcon = true, backgroundColor = 'bg-dark300'}) => {
   const classes = addClassString('z-30 fixed duration-700 h-screen m-0 w-screen transition-transform ease-in-out left-0 top-0',
       [isOpen ? 'translate-x-0' : 'translate-x-full'])
-  const containerClasses = addClassString('absolute m-0 right-0 top-0 h-full w-full overflow-scroll max-w-modal', [backgroundColor, isArrowIcon && 'p-10'])
+  const containerClasses = addClassString('absolute m-0 right-0 top-0 h-full w-full overflow-scroll scrollbar-hide max-w-modal', [backgroundColor, isArrowIcon && 'p-10'])
 
     useEffect(() => {
         let scrollY;

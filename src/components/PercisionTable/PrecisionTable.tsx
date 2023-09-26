@@ -50,7 +50,7 @@ const PrecisionTable: FC<PrecisionTableProps> = ({ confusion, diversity }) => {
               <div className="md:w-full border-b pb-4 md:border-none md:pb-0 md:border-dark300">
                   <Typography isBold>Charts</Typography>
               </div>
-              <div className="flex space-x-4 md:flex-col md:space-x-0 overflow-x-auto">
+              <div className="flex space-x-4 md:flex-col md:space-x-0 overflow-x-auto scrollbar-hide">
                    <TabSelect text="Overview" onClick={viewOverview} isActive={currentView === PrecisionView.OVERVIEW || !currentView}/>
                    <TabSelect text="TPR Precision" onClick={viewTPR} isActive={currentView === PrecisionView.TPR_DETAIL} />
                   <TabSelect text="PPV Precision" onClick={viewPPV} isActive={currentView === PrecisionView.PPV_DETAIL} />

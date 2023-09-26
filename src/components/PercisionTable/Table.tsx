@@ -18,7 +18,7 @@ export interface TableProps {
 }
 
 const Table:FC<TableProps> = ({children, className, tableClasses, legend = defaultLegend}) => {
-    const classes = addClassString('border bg-dark100 border-dark200 shadow rounded-lg h-fit overflow-scroll', [className])
+    const classes = addClassString('border bg-dark100 border-dark200 shadow rounded-lg h-fit overflow-scroll scrollbar-hide', [className])
     const tableClass = addClassString('w-full table-auto border-b border-dark200', [tableClasses])
 
   return (
@@ -31,7 +31,7 @@ const Table:FC<TableProps> = ({children, className, tableClasses, legend = defau
                   Updated daily
               </Typography>
               {legend && (
-                  <div className="flex space-x-4 overflow-scroll">
+                  <div className="flex space-x-4 overflow-scroll scrollbar-hide">
                       <LegendItem color="error" text={legend.error}/>
                       <LegendItem color="fair" text={legend.fair}/>
                       <LegendItem color="good" text={legend.good}/>
