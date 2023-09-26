@@ -21,9 +21,9 @@ const clientNames = Object.keys(clients)
           <thead>
           <tr className="border-b border-dark200">
               <th></th>
-              <TableHeaderCell text="TPR" isInfo/>
-              <TableHeaderCell text="TNR" isInfo/>
-              <TableHeaderCell text="PPV" isInfo/>
+              <TableHeaderCell text="TPR" info="True positive rate, percentage of blocks produced by the client which are correctly classified by blockprint"/>
+              <TableHeaderCell text="TNR" info="True negative rate, percentage of blocks NOT produced by the client which are correctly classified by blockprint"/>
+              <TableHeaderCell text="PPV" info="Positive predictive value, percentage of blocks classified as this client by blockprint which were actually produced by this client"/>
           </tr>
           </thead>
           <tbody>

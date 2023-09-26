@@ -8,6 +8,8 @@ import {PrecisionResults} from '@/types';
 import {FC} from 'react';
 import getPositivePredictiveValue from '@/utils/getPositivePredictiveValue';
 import getComparativePpvRate from '@/utils/getComparativePpvRate';
+import {PPV_EXPLAINED} from '@/constants';
+import InfoModal from '@/components/PercisionTable/InfoModal';
 
 export interface PositivePredictiveProps {
     data: PrecisionResults
@@ -22,7 +24,9 @@ const PositivePredictive:FC<PositivePredictiveProps> = ({data}) => {
         <Table className="max-w-lg1.5 lg:max-w-xl xl:max-w-table">
             <thead>
             <tr className="border-b border-dark200">
-                <th></th>
+                <th>
+                    <InfoModal title={PPV_EXPLAINED.title} texts={PPV_EXPLAINED.texts}/>
+                </th>
                 {clientNames.map((name, index) => (
                     <TableHeaderCell key={index} text={name}/>
                 ))}

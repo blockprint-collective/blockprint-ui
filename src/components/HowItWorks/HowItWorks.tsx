@@ -1,7 +1,6 @@
 import Typography from '@/components/Typography/Typography';
-import OverviewExplained from '@/components/Explainations/OverviewExplained';
-import TprExplained from '@/components/Explainations/TprExplained';
-import PpvExplained from '@/components/Explainations/PpvExplained';
+import Explanation from '@/components/Explanation/Explanation';
+import {PPV_EXPLAINED, TPR_EXPLAINED, OVERVIEW_EXPLAINED} from '@/constants';
 
 const HowItWorks = () => {
   return (
@@ -17,9 +16,9 @@ const HowItWorks = () => {
           <div className="flex-1 max-w-xl space-y-4">
               <Typography isBold type="text-base1">How does it work?</Typography>
               <div className="space-y-4">
-                  <OverviewExplained/>
-                  <TprExplained/>
-                  <PpvExplained/>
+                  <Explanation title={OVERVIEW_EXPLAINED.title} texts={OVERVIEW_EXPLAINED.texts}/>
+                  <Explanation title={TPR_EXPLAINED.title} texts={TPR_EXPLAINED.texts}/>
+                  <Explanation title={PPV_EXPLAINED.title} texts={PPV_EXPLAINED.texts}/>
               </div>
           </div>
       </div>
