@@ -29,7 +29,7 @@ const Tooltip:FC<TooltipProps> = ({text, children, maxWidth}) => {
   return (
       <div className="relative group">
           <div ref={divRef} style={{left: toolPosition?.left, top: toolPosition?.top, maxWidth}}
-               className="p-2 z-30 translate-y-6 opacity-0 transition-all ease-in-out duration-500 group-hover:translate-y-0 group-hover:opacity-100 -translate-x-1/2 bg-black fixed rounded-md top-0 left-0">
+               className="p-2 z-30 translate-y-6 opacity-0 transition-all ease-in-out pointer-events-none duration-500 group-hover:translate-y-0 group-hover:opacity-100 -translate-x-1/2 bg-black fixed rounded-md top-0 left-0">
               {text && (
                   <Typography color="text-light" className="text-left" type="text-tiny">{text}</Typography>
               )}
