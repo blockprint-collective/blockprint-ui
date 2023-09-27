@@ -10,8 +10,8 @@ import Section from '@/components/Section/Section';
 const ShoutOuts = () => {
   return (
       <Section>
-          <div className="w-full lg:pt-24 x-padding space-y-8">
-              <Typography color="text-light80">Used By:</Typography>
+          <div className="w-full pt-12 lg:pt-24 x-padding space-y-8">
+              <Typography color="text-light80">Used By</Typography>
               <div className="w-full overflow-scroll scrollbar-hide flex space-x-12 items-center">
                   <a href="https://ethereum.org/" target="_blank" rel="noreferrer">
                       <Image alt="Ethereum Foundation" className="w-32 max-w-none" src={EthF}/>
