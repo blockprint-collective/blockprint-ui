@@ -17,6 +17,7 @@ body {
 
 
 .x-padding {
+    max-width: 1800px;
     @apply px-4
 }
 

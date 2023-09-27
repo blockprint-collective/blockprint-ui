@@ -5,6 +5,7 @@ import SigmaPrime from '@/components/SigmaPrime/SigmaPrime';
 import ExtraResources from '@/components/ExtraResources/ExtraResources';
 import {useRouter} from 'next/navigation';
 import {PrecisionView} from '@/types';
+import Section from '@/components/Section/Section';
 
 const Footer = () => {
     const router = useRouter()
@@ -27,34 +28,36 @@ const Footer = () => {
 
 
   return (
-      <div className="w-full x-padding py-8 space-y-12 lg:space-y-0 bg-dark300 flex flex-col lg:flex-row justify-between">
-          <div className="flex flex-col space-y-12 lg:space-y-0 justify-between">
-              <Typography isBold>Blockprint.</Typography>
-              <ExtraResources/>
-          </div>
-          <div className="flex flex-col lg:flex-row space-y-12 lg:space-y-0 lg:space-x-48 lg:items-end">
-              <div>
-                  <Typography isBold>Charts</Typography>
-                  <ul>
-                      <li className="cursor-pointer" onClick={viewOverview}>
-                          <Typography color="text-light80">Overview</Typography>
-                      </li>
-                      <li className="cursor-pointer" onClick={viewTpr}>
-                          <Typography color="text-light80">TPR Precision</Typography>
-                      </li>
-                      <li className="cursor-pointer" onClick={viewPpv}>
-                          <Typography color="text-light80">PPV Precision</Typography>
-                      </li>
-                       <li className="cursor-pointer" onClick={viewDiversity}>
-                          <Typography color="text-light80">Diversity</Typography>
-                       </li>
-                  </ul>
+      <Section className="bg-dark300">
+          <div className="w-full x-padding py-8 space-y-12 lg:space-y-0 flex flex-col lg:flex-row justify-between">
+              <div className="flex flex-col space-y-12 lg:space-y-0 justify-between">
+                  <Typography isBold>Blockprint.</Typography>
+                  <ExtraResources/>
               </div>
-              <div>
-                  <SigmaPrime/>
+              <div className="flex flex-col lg:flex-row space-y-12 lg:space-y-0 lg:space-x-48 lg:items-end">
+                  <div>
+                      <Typography isBold>Charts</Typography>
+                      <ul>
+                          <li className="cursor-pointer" onClick={viewOverview}>
+                              <Typography color="text-light80">Overview</Typography>
+                          </li>
+                          <li className="cursor-pointer" onClick={viewTpr}>
+                              <Typography color="text-light80">TPR Precision</Typography>
+                          </li>
+                          <li className="cursor-pointer" onClick={viewPpv}>
+                              <Typography color="text-light80">PPV Precision</Typography>
+                          </li>
+                          <li className="cursor-pointer" onClick={viewDiversity}>
+                              <Typography color="text-light80">Diversity</Typography>
+                          </li>
+                      </ul>
+                  </div>
+                  <div>
+                      <SigmaPrime/>
+                  </div>
               </div>
           </div>
-      </div>
+      </Section>
   )
 }
 

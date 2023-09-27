@@ -10,6 +10,7 @@ import PositivePredictive from '@/components/PercisionTable/Views/PositivePredic
 import SigmaPrime from '@/components/SigmaPrime/SigmaPrime';
 import Diversity from '@/components/PercisionTable/Views/Diversity';
 import useTableNav from '@/hooks/useTableNav';
+import Section from '@/components/Section/Section';
 
 export interface PrecisionTableProps {
   confusion: PrecisionResults
@@ -42,23 +43,25 @@ const PrecisionTable: FC<PrecisionTableProps> = ({ confusion, diversity }) => {
     }
 
   return (
-      <div className="w-screen x-padding flex flex-col md:flex-row justify-between">
-          <div className="order-2 md:oder-1 md:flex-1">
-              {renderView()}
+      <Section>
+          <div className="w-full x-padding flex flex-col md:flex-row justify-between">
+              <div className="order-2 md:oder-1 md:flex-1">
+                  {renderView()}
+              </div>
+              <div className="space-y-4 w-full md:w-36 order-1 md:order-2 mb-8 lg:mb-0 relative">
+                  <div className="md:w-full border-b pb-4 md:border-none md:pb-0 md:border-dark300">
+                      <Typography isBold>Charts</Typography>
+                  </div>
+                  <div className="flex space-x-4 md:flex-col md:space-x-0 overflow-x-auto scrollbar-hide">
+                      <TabSelect text="Overview" onClick={viewOverview} isActive={currentView === PrecisionView.OVERVIEW || !currentView}/>
+                      <TabSelect text="TPR Precision" onClick={viewTPR} isActive={currentView === PrecisionView.TPR_DETAIL} />
+                      <TabSelect text="PPV Precision" onClick={viewPPV} isActive={currentView === PrecisionView.PPV_DETAIL} />
+                      <TabSelect text="Client Diversity" onClick={viewDiversity} isActive={currentView === PrecisionView.DIVERSITY} />
+                  </div>
+                  <SigmaPrime className="hidden xl:flex absolute bottom-0 right-0"/>
+              </div>
           </div>
-          <div className="space-y-4 w-full md:w-36 order-1 md:order-2 mb-8 lg:mb-0 relative">
-              <div className="md:w-full border-b pb-4 md:border-none md:pb-0 md:border-dark300">
-                  <Typography isBold>Charts</Typography>
-              </div>
-              <div className="flex space-x-4 md:flex-col md:space-x-0 overflow-x-auto scrollbar-hide">
-                   <TabSelect text="Overview" onClick={viewOverview} isActive={currentView === PrecisionView.OVERVIEW || !currentView}/>
-                   <TabSelect text="TPR Precision" onClick={viewTPR} isActive={currentView === PrecisionView.TPR_DETAIL} />
-                  <TabSelect text="PPV Precision" onClick={viewPPV} isActive={currentView === PrecisionView.PPV_DETAIL} />
-                  <TabSelect text="Client Diversity" onClick={viewDiversity} isActive={currentView === PrecisionView.DIVERSITY} />
-              </div>
-              <SigmaPrime className="hidden xl:flex absolute bottom-0 right-0"/>
-            </div>
-      </div>
+      </Section>
   )
 }
 
