@@ -6,8 +6,8 @@ import HowItWorks from '@/components/HowItWorks/HowItWorks';
 import Footer from '@/components/Footer/Footer';
 import getEpochRange from '@/utils/getEpochRange';
 import Background from '@/components/Background/Background';
-import SigmaPrime from '@/components/SigmaPrime/SigmaPrime';
 import ShoutOuts from '@/components/ShoutOuts/ShoutOuts';
+import DiversityTable from '@/components/DiversityTable/DiversityTable';
 
 export default async function Home() {
   const confusion = await getConfusion()
@@ -20,10 +20,8 @@ export default async function Home() {
         <div className="relative h-screen w-screen z-10">
             <TopBar/>
             <Header/>
-            <PrecisionTable diversity={diversity} confusion={confusion} />
-            <div className="lg:hidden x-padding py-12">
-                <SigmaPrime/>
-            </div>
+            <DiversityTable diversity={diversity}/>
+            <PrecisionTable confusion={confusion} />
             <ShoutOuts/>
             <HowItWorks/>
             <Footer/>

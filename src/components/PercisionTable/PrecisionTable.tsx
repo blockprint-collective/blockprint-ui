@@ -1,25 +1,21 @@
 'use client'
 
 import {FC} from 'react'
-import {DiversityResults, PrecisionResults, PrecisionView} from '@/types'
+import {PrecisionResults, PrecisionView} from '@/types'
 import Overview from '@/components/PercisionTable/Views/Overview';
 import TabSelect from '@/components/PercisionTable/TabSelect';
 import TruePositive from '@/components/PercisionTable/Views/TruePositive';
 import Typography from '@/components/Typography/Typography';
 import PositivePredictive from '@/components/PercisionTable/Views/PositivePredictive';
-import SigmaPrime from '@/components/SigmaPrime/SigmaPrime';
-import Diversity from '@/components/PercisionTable/Views/Diversity';
 import useTableNav from '@/hooks/useTableNav';
 import Section from '@/components/Section/Section';
 
 export interface PrecisionTableProps {
   confusion: PrecisionResults
-  diversity: DiversityResults
 }
 
-const PrecisionTable: FC<PrecisionTableProps> = ({ confusion, diversity }) => {
-    const clientList = Object.keys(confusion.clients)
-    const { currentView, viewOverview, viewTPR, viewPPV, viewDiversity } = useTableNav()
+const PrecisionTable: FC<PrecisionTableProps> = ({ confusion }) => {
+    const { currentView, viewOverview, viewTPR, viewPPV } = useTableNav()
 
     const renderView = () => {
         switch (currentView) {
@@ -31,10 +27,6 @@ const PrecisionTable: FC<PrecisionTableProps> = ({ confusion, diversity }) => {
                 return (
                     <PositivePredictive data={confusion}/>
                 )
-            case PrecisionView.DIVERSITY:
-                return (
-                    <Diversity clientList={clientList}  diversity={diversity}/>
-                )
             default:
                 return (
                     <Overview data={confusion}/>
@@ -44,21 +36,29 @@ const PrecisionTable: FC<PrecisionTableProps> = ({ confusion, diversity }) => {
 
   return (
       <Section>
-          <div className="w-full x-padding flex flex-col md:flex-row justify-between">
-              <div className="order-2 md:oder-1 md:flex-1">
-                  {renderView()}
+          <div className="w-full x-padding">
+              <div className="pb-8 pt-16 lg:pt-32 space-y-4 lg:space-y-2">
+                  <Typography type="text-base3" className="lg:text-base4 tracking-subTitle leading-6 lg:leading-10">Where does this data come from?</Typography>
+                  <Typography className="max-w-2xl">Blockprint classifies blocks using a machine-learning model which sometimes makes mistakes. The statistics shown below are measurements of blockprint’s accuracy using a cluster of consensus clients that produce blocks every slot.</Typography>
+                  <div className="flex space-x-2">
+                      <Typography family="font-archivo" className="tracking-tighter" color="text-purple">Dive into precision tables</Typography>
+                      <i className="bi-arrow-down text-purple"/>
+                  </div>
               </div>
-              <div className="space-y-4 w-full md:w-36 order-1 md:order-2 mb-8 lg:mb-0 relative">
-                  <div className="md:w-full border-b pb-4 md:border-none md:pb-0 md:border-dark300">
-                      <Typography isBold>Charts</Typography>
+              <div className="w-full flex flex-col md:flex-row justify-between">
+                  <div className="order-2 md:oder-1 md:flex-1">
+                      {renderView()}
                   </div>
-                  <div className="flex space-x-4 md:flex-col md:space-x-0 overflow-x-auto scrollbar-hide">
-                      <TabSelect text="Overview" onClick={viewOverview} isActive={currentView === PrecisionView.OVERVIEW || !currentView}/>
-                      <TabSelect text="TPR Precision" onClick={viewTPR} isActive={currentView === PrecisionView.TPR_DETAIL} />
-                      <TabSelect text="PPV Precision" onClick={viewPPV} isActive={currentView === PrecisionView.PPV_DETAIL} />
-                      <TabSelect text="Client Diversity" onClick={viewDiversity} isActive={currentView === PrecisionView.DIVERSITY} />
+                  <div className="space-y-4 w-full md:w-36 order-1 md:order-2 mb-8 lg:mb-0 relative">
+                      <div className="md:w-full border-b pb-4 md:border-none md:pb-0 md:border-dark300">
+                          <Typography isBold>Precision Charts</Typography>
+                      </div>
+                      <div className="flex space-x-4 md:flex-col md:space-x-0 overflow-x-auto scrollbar-hide">
+                          <TabSelect text="Overview" onClick={viewOverview} isActive={currentView === PrecisionView.OVERVIEW || !currentView}/>
+                          <TabSelect text="TPR Precision" onClick={viewTPR} isActive={currentView === PrecisionView.TPR_DETAIL} />
+                          <TabSelect text="PPV Precision" onClick={viewPPV} isActive={currentView === PrecisionView.PPV_DETAIL} />
+                      </div>
                   </div>
-                  <SigmaPrime className="hidden xl:flex absolute bottom-0 right-0"/>
               </div>
           </div>
       </Section>
