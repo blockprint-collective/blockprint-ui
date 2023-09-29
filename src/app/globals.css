@@ -8,6 +8,10 @@ body {
     @apply text-gray-500
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .percent-container {
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
@@ -45,4 +49,8 @@ body {
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-top: 10px solid black;
+}
+
+.center-staged {
+    @apply w-full flex justify-center
 }
