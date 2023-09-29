@@ -52,6 +52,38 @@ export const TEKU = {
     discord: 'https://discord.gg/9mCVSY6'
 }
 
+export const ANIM_VIEWPORT = {once: true, amount: .4};
+
+export const LEFT_SIDE_ANIM = {
+    init: { opacity: 0, x: -50 },
+    inView: { opacity: 1, x: 0 },
+    transition: {duration: 1.2}
+}
+
+export const LEFT_SIDE_DIAGONAL_ANIM = {
+    init: { opacity: 0, x: -50, y: 50 },
+    inView: { opacity: 1, x: 0, y: 0 },
+    transition: {duration: .8}
+}
+
+export const RIGHT_SIDE_DIAGONAL_ANIM = {
+    init: { opacity: 0, x: 50, y: 50 },
+    inView: { opacity: 1, x: 0, y: 0 },
+    transition: {duration: .8}
+}
+
+export const UP_ANIM = {
+    init: { opacity: 0, y: 50 },
+    inView: { opacity: 1, y: 0 },
+    transition: {duration: .4}
+}
+
+export const SIDE_ANIM = {
+    init: { opacity: 0, x: 50 },
+    inView: { opacity: 1, x: 0 },
+    transition: {duration: 1.2}
+}
+
 export const RESOURCES = [Lighthouse, GRANDINE, LOADSTAR, NIMBUS, PRYSM, TEKU] as ResourceData[]
 
 export const OVERVIEW_EXPLAINED = {
