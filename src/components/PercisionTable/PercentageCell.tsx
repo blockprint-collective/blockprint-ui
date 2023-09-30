@@ -7,17 +7,20 @@ import {FC, useEffect, useState} from 'react';
 export interface PercentageCellProps {
     data: ClientDiversityResult
     animDelay?: number
+    isAnimate?: boolean
 }
 
-const PercentageCell:FC<PercentageCellProps> = ({data, animDelay}) => {
+const PercentageCell:FC<PercentageCellProps> = ({data, animDelay, isAnimate = true}) => {
   const { client, percentage } = data;
   const [value, setValue] = useState(0)
 
   useEffect(() => {
-      setTimeout(() => {
-          setValue(Number(percentage))
-      }, animDelay * 100)
-  }, [animDelay, percentage])
+      if(isAnimate) {
+          setTimeout(() => {
+              setValue(Number(percentage))
+          }, animDelay * 100)
+      }
+  }, [animDelay, percentage, isAnimate])
 
     useEffect(() => {
         return () => {

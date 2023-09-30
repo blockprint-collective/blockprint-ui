@@ -2,7 +2,7 @@ import {PrecisionResults} from '@/types';
 import {FC} from 'react';
 import getTruePositiveRate from '@/utils/getTruePositiveRate';
 import getComparativeTprRate from '@/utils/getComparativeTprRate';
-import TableDataCell from '@/components/PercisionTable/TableDataCell';
+import TableDataCell, {TableDataCellProps} from '@/components/PercisionTable/TableDataCell';
 import getPercentageColor from '@/utils/getPercentageColor';
 import getComparativeColor from '@/utils/getComparativeColor';
 import Typography from '@/components/Typography/Typography';
@@ -11,11 +11,11 @@ import TableHeaderCell from '@/components/PercisionTable/TableHeaderCell';
 import {TPR_EXPLAINED} from '@/constants';
 import InfoModal from '@/components/PercisionTable/InfoModal';
 
-export interface TruePositiveTableProps {
+export interface TruePositiveTableProps extends Pick<TableDataCellProps, 'isAnimate'> {
     data: PrecisionResults
 }
 
-const TruePositive:FC<TruePositiveTableProps> = ({data}) => {
+const TruePositive:FC<TruePositiveTableProps> = ({data, isAnimate}) => {
     const {clients} = data;
     const clientNames = Object.keys(clients)
 
@@ -46,7 +46,7 @@ const TruePositive:FC<TruePositiveTableProps> = ({data}) => {
                       const result = isDiag ? tprData : comparativeTpr
 
                       return (
-                          <TableDataCell key={cIndex} animDelay={(cIndex * 25) * index}
+                          <TableDataCell isAnimate={isAnimate} key={cIndex} animDelay={(cIndex * 25) * index}
                                          isDarkText={isDiag}
                                          cellColor={isDiag ? getPercentageColor(tprData) : getComparativeColor(comparativeTpr) }
                                          data={result}/>

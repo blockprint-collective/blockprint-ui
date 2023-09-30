@@ -3,17 +3,17 @@ import getTrueNegativeRate from '@/utils/getTrueNegativeRate';
 import getPositivePredictiveValue from '@/utils/getPositivePredictiveValue';
 import {PrecisionResults} from '@/types';
 import {FC} from 'react';
-import TableDataCell from '@/components/PercisionTable/TableDataCell';
+import TableDataCell, {TableDataCellProps} from '@/components/PercisionTable/TableDataCell';
 import getPercentageColor from '@/utils/getPercentageColor';
 import Typography from '@/components/Typography/Typography';
 import Table from '@/components/PercisionTable/Table';
 import TableHeaderCell from '@/components/PercisionTable/TableHeaderCell';
 
-export interface OverviewTableProps {
+export interface OverviewTableProps extends Pick<TableDataCellProps, 'isAnimate'> {
     data: PrecisionResults
 }
 
-const Overview:FC<OverviewTableProps> = ({data}) => {
+const Overview:FC<OverviewTableProps> = ({data, isAnimate}) => {
 const {clients} = data;
 const clientNames = Object.keys(clients)
   return (
@@ -38,9 +38,9 @@ const clientNames = Object.keys(clients)
                       <td className="px-4 py-2">
                           <Typography isBold type="text-tiny">{name}</Typography>
                       </td>
-                      <TableDataCell animDelay={0} data={tpr} cellColor={getPercentageColor(tpr)} />
-                      <TableDataCell animDelay={(2 * 15) * index} data={tnr} cellColor={getPercentageColor(tnr)}/>
-                      <TableDataCell animDelay={(3 * 25) * index} data={ppv} cellColor={getPercentageColor(ppv)}/>
+                      <TableDataCell isAnimate={isAnimate} animDelay={0} data={tpr} cellColor={getPercentageColor(tpr)} />
+                      <TableDataCell isAnimate={isAnimate} animDelay={(2 * 15) * index} data={tnr} cellColor={getPercentageColor(tnr)}/>
+                      <TableDataCell isAnimate={isAnimate} animDelay={(3 * 25) * index} data={ppv} cellColor={getPercentageColor(ppv)}/>
                   </tr>
               )
           })}

@@ -1,7 +1,7 @@
 import Table from '@/components/PercisionTable/Table';
 import TableHeaderCell from '@/components/PercisionTable/TableHeaderCell';
 import Typography from '@/components/Typography/Typography';
-import TableDataCell from '@/components/PercisionTable/TableDataCell';
+import TableDataCell, {TableDataCellProps} from '@/components/PercisionTable/TableDataCell';
 import getPercentageColor from '@/utils/getPercentageColor';
 import getComparativeColor from '@/utils/getComparativeColor';
 import {PrecisionResults} from '@/types';
@@ -11,11 +11,11 @@ import getComparativePpvRate from '@/utils/getComparativePpvRate';
 import {PPV_EXPLAINED} from '@/constants';
 import InfoModal from '@/components/PercisionTable/InfoModal';
 
-export interface PositivePredictiveProps {
+export interface PositivePredictiveProps extends Pick<TableDataCellProps, 'isAnimate'> {
     data: PrecisionResults
 }
 
-const PositivePredictive:FC<PositivePredictiveProps> = ({data}) => {
+const PositivePredictive:FC<PositivePredictiveProps> = ({data, isAnimate}) => {
     const {clients} = data;
     const clientNames = Object.keys(clients)
 
@@ -47,7 +47,7 @@ const PositivePredictive:FC<PositivePredictiveProps> = ({data}) => {
                         const result = isDiag ? ppvData : comparativePpv;
 
                         return (
-                            <TableDataCell key={cIndex} animDelay={(cIndex * 25) * index}
+                            <TableDataCell isAnimate={isAnimate} key={cIndex} animDelay={(cIndex * 25) * index}
                                            isDarkText={isDiag}
                                            cellColor={isDiag ? getPercentageColor(ppvData) : getComparativeColor(comparativePpv) }
                                            data={result}/>
