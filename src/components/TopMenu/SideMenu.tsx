@@ -5,50 +5,38 @@ import SigmaPrime from '@/components/SigmaPrime/SigmaPrime';
 import ExtraResources from '@/components/ExtraResources/ExtraResources';
 import SideModal from '@/components/SideModal/SideModal';
 import {FC} from 'react';
-import useTableNav from '@/hooks/useTableNav';
-import {PrecisionView} from '@/types';
+import {DiversityView, PrecisionView} from '@/types';
+import useScrollTableView from '@/hooks/useScrollTableView';
+import {diversityView, precisionView} from '@/recoil/atoms';
 
 export interface SideMenuProps {
     isOpen: boolean,
     onClose: () => void,
-    onOpenResources: () => void
+    onOpenResources: () => void,
+    onScrollPrecision: () => void
+    onScrollDiversity: () => void
 }
 
-const SideMenu:FC<SideMenuProps> = ({isOpen, onClose, onOpenResources}) => {
-    const { viewOverview, viewTPR, viewPPV, viewDiversity } = useTableNav()
+const SideMenu:FC<SideMenuProps> = ({isOpen, onClose, onOpenResources, onScrollDiversity, onScrollPrecision}) => {
+    const { scrollTableView } = useScrollTableView(onScrollPrecision, precisionView)
+    const { scrollTableView: scrollPrecisionView } = useScrollTableView(onScrollDiversity, diversityView)
 
-    const viewResources = () => {
-        onClose();
+    const onCloseModal = (callback: () => void) => {
+        onClose()
 
         setTimeout(() => {
-            onOpenResources();
+            callback()
         }, 500)
     }
 
+    const viewResources = () => onCloseModal(onOpenResources)
 
-    const selectNav = (view: PrecisionView) => {
-        onClose()
+    const viewPrecisionTable = (view) => onCloseModal(() => scrollTableView(view))
 
-        switch (view) {
-            case PrecisionView.DIVERSITY:
-                viewDiversity();
-                break;
-            case PrecisionView.PPV_DETAIL:
-                viewPPV();
-                break;
-            case PrecisionView.TPR_DETAIL:
-                viewTPR();
-                break;
-            default:
-                viewOverview();
-                break;
-        }
-    }
-
-    const selectOverview = () => selectNav(PrecisionView.OVERVIEW)
-    const selectPpv = () => selectNav(PrecisionView.PPV_DETAIL)
-    const selectTpr= () => selectNav(PrecisionView.TPR_DETAIL)
-    const selectDiversity = () => selectNav(PrecisionView.DIVERSITY)
+    const selectOverview = () => viewPrecisionTable(PrecisionView.OVERVIEW)
+    const selectPpv = () => viewPrecisionTable(PrecisionView.PPV_DETAIL)
+    const selectTpr= () => viewPrecisionTable(PrecisionView.TPR_DETAIL)
+    const selectDiversity = () => onCloseModal(() => scrollPrecisionView(DiversityView.VALIDATOR))
 
 
   return (
