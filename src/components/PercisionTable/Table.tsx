@@ -32,9 +32,9 @@ const Table:FC<TableProps> = ({children, className, tableClasses, legend = defau
               </Typography>
               {legend && (
                   <div className="flex space-x-4 overflow-scroll scrollbar-hide">
-                      <LegendItem color="error" text={legend.error}/>
-                      <LegendItem color="fair" text={legend.fair}/>
                       <LegendItem color="good" text={legend.good}/>
+                      <LegendItem color="fair" text={legend.fair}/>
+                      <LegendItem color="error" text={legend.error}/>
                   </div>
               )}
           </div>
