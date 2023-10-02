@@ -3,7 +3,7 @@
 import Typography from '@/components/Typography/Typography';
 import TabSelect from '@/components/PercisionTable/TabSelect';
 import {DiversityResults} from '@/types';
-import Diversity from '@/components/PercisionTable/Views/Diversity';
+import Diversity from '@/components/DiversityTable/Views/Diversity';
 import {FC} from 'react';
 import {motion} from 'framer-motion';
 import {ANIM_VIEWPORT, LEFT_SIDE_DIAGONAL_ANIM, RIGHT_SIDE_DIAGONAL_ANIM, UP_ANIM} from '@/constants';
