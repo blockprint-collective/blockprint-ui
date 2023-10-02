@@ -1,12 +1,17 @@
 'use client'
 
-import {useState} from 'react';
+import {FC, useState} from 'react';
 import Typography from '@/components/Typography/Typography';
 import ExtraResources from '@/components/ExtraResources/ExtraResources';
 import SideMenu from '@/components/TopMenu/SideMenu';
 import ResourceModal from '@/components/ResourceModal/ResourceModal';
 
-const TopMenu = () => {
+export interface TopMenuProps {
+    onScrollPrecision: () => void
+    onScrollDiversity: () => void
+}
+
+const TopMenu:FC<TopMenuProps> = (props) => {
   const [isMenu, toggleMenu] = useState(false)
     const [isResourceMenu, toggleResourceMenu] = useState(false)
 
@@ -26,7 +31,7 @@ const TopMenu = () => {
           <div onClick={openMenu} className="md:hidden rounded-full h-8 w-8 border border-dark300 flex items-center justify-center cursor-pointer hover:bg-dark300">
               <i className="bi-list text-base2"/>
           </div>
-          <SideMenu isOpen={isMenu} onClose={closeMenu} onOpenResources={openResource}/>
+          <SideMenu {...props} isOpen={isMenu} onClose={closeMenu} onOpenResources={openResource}/>
           <ResourceModal isOpen={isResourceMenu} onClose={closeResource}/>
       </>
   )

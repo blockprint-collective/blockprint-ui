@@ -3,28 +3,23 @@
 import Typography from '@/components/Typography/Typography';
 import SigmaPrime from '@/components/SigmaPrime/SigmaPrime';
 import ExtraResources from '@/components/ExtraResources/ExtraResources';
-import {useRouter} from 'next/navigation';
-import {PrecisionView} from '@/types';
 import Section from '@/components/Section/Section';
+import {FC} from 'react';
+import {precisionView} from '@/recoil/atoms';
+import {PrecisionView} from '@/types';
+import useScrollTableView from '@/hooks/useScrollTableView';
 
-const Footer = () => {
-    const router = useRouter()
-    const changeView = (table: PrecisionView) => router.push(`?chart=${table.toLowerCase()}`)
-    const onScrollFinish = (callback) => {
-        if (window.scrollY === 0) {
-            window.removeEventListener('scroll', onScrollFinish);
-            callback();
-        }
-    };
-    const moveToTable = (table: PrecisionView) => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        window.addEventListener('scroll', () => onScrollFinish(() => changeView(table)));
-    }
+export interface FooterProps {
+    onScrollPrecision: () => void
+    onScrollDiversity: () => void
+}
 
-    const viewOverview = () => moveToTable(PrecisionView.OVERVIEW)
-    const viewTpr = () => moveToTable(PrecisionView.TPR_DETAIL)
-    const viewPpv = () => moveToTable(PrecisionView.PPV_DETAIL)
-    const viewDiversity = () => moveToTable(PrecisionView.DIVERSITY)
+const Footer:FC<FooterProps> = ({onScrollPrecision, onScrollDiversity}) => {
+    const { scrollTableView } = useScrollTableView(onScrollPrecision, precisionView)
+
+    const viewTpr = () => scrollTableView(PrecisionView.TPR_DETAIL)
+    const viewOverview = () => scrollTableView(PrecisionView.OVERVIEW)
+    const viewPpv = () => scrollTableView(PrecisionView.PPV_DETAIL)
 
 
   return (
@@ -35,22 +30,29 @@ const Footer = () => {
                   <ExtraResources/>
               </div>
               <div className="flex flex-col lg:flex-row space-y-12 lg:space-y-0 lg:space-x-48 lg:items-end">
-                  <div>
-                      <Typography isBold>Charts</Typography>
-                      <ul>
-                          <li className="cursor-pointer" onClick={viewOverview}>
-                              <Typography color="text-light80">Overview</Typography>
-                          </li>
-                          <li className="cursor-pointer" onClick={viewTpr}>
-                              <Typography color="text-light80">TPR Precision</Typography>
-                          </li>
-                          <li className="cursor-pointer" onClick={viewPpv}>
-                              <Typography color="text-light80">PPV Precision</Typography>
-                          </li>
-                          <li className="cursor-pointer" onClick={viewDiversity}>
-                              <Typography color="text-light80">Diversity</Typography>
-                          </li>
-                      </ul>
+                  <div className="flex flex-col lg:flex-row space-y-12 lg:space-y-0 lg:space-x-24 items-start">
+                      <div>
+                          <Typography isBold>Diversity Charts</Typography>
+                          <ul>
+                              <li onClick={onScrollDiversity} className="cursor-pointer">
+                                  <Typography color="text-light80">Validator Diversity</Typography>
+                              </li>
+                          </ul>
+                      </div>
+                      <div>
+                          <Typography isBold>Precision Charts</Typography>
+                          <ul>
+                              <li onClick={viewOverview} className="cursor-pointer">
+                                  <Typography color="text-light80">Overview</Typography>
+                              </li>
+                              <li onClick={viewTpr} className="cursor-pointer">
+                                  <Typography color="text-light80">TPR Precision</Typography>
+                              </li>
+                              <li onClick={viewPpv} className="cursor-pointer">
+                                  <Typography color="text-light80">PPV Precision</Typography>
+                              </li>
+                          </ul>
+                      </div>
                   </div>
                   <div>
                       <SigmaPrime/>

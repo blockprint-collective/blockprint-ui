@@ -2,22 +2,23 @@
 import InfoSelect from '@/components/InfoSelect/InfoSelect';
 import {FC, useState} from 'react';
 import ExplainModal from '@/components/ExplainModal/ExplainModal';
+import {motion, AnimationProps} from 'framer-motion';
 
-export interface ExplanationProps {
+export interface ExplanationProps extends AnimationProps {
     title: string,
     texts: string[]
 }
 
-const Explanation:FC<ExplanationProps> = ({title, texts}) => {
+const Explanation:FC<ExplanationProps> = ({title, texts, ...props}) => {
     const [isOpen, toggleModal] = useState(false)
     const openModal = () => toggleModal(true)
     const closeModal = () => toggleModal(false)
 
   return (
-      <div>
+      <motion.div {...props}>
           <ExplainModal title={title} texts={texts} isOpen={isOpen} onClose={closeModal}/>
           <InfoSelect onClick={openModal} text={title}/>
-      </div>
+      </motion.div>
   )
 }
 
