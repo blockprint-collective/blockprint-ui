@@ -30,11 +30,13 @@ const SideModal:FC<SideModalProps> = ({isOpen, onClose, children, isArrowIcon = 
         return () => {
             if (isOpen) {
                 document.body.style.overflowY = 'auto';
+                document.documentElement.style.scrollBehavior = 'auto';
                 document.body.style.position = '';
                 document.body.style.top = '';
                 document.body.style.left = '';
                 document.body.style.right = '';
                 window.scrollTo(0, scrollY);
+                document.documentElement.style.scrollBehavior = 'smooth';
             }
         };
     }, [isOpen]);
