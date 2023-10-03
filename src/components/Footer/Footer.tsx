@@ -25,11 +25,11 @@ const Footer:FC<FooterProps> = ({onScrollPrecision, onScrollDiversity}) => {
   return (
       <Section className="bg-dark300">
           <div className="w-full x-padding py-8 space-y-12 lg:space-y-0 flex flex-col lg:flex-row justify-between">
-              <div className="flex flex-col space-y-12 lg:space-y-0 justify-between">
+              <div className="flex flex-col space-y-8 lg:space-y-0 justify-between">
                   <Typography isBold>Blockprint.</Typography>
                   <ExtraResources/>
               </div>
-              <div className="flex flex-col lg:flex-row space-y-12 lg:space-y-0 lg:space-x-48 lg:items-end">
+              <div className="flex flex-col lg:flex-row space-y-12 lg:space-y-0 lg:space-x-48">
                   <div className="flex flex-col lg:flex-row space-y-12 lg:space-y-0 lg:space-x-24 items-start">
                       <div>
                           <Typography isBold>Diversity Charts</Typography>
