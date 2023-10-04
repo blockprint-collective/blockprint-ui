@@ -39,10 +39,41 @@ const archivo = localFont({
   variable: '--archivo'
 })
 
-export const metadata: Metadata = {
+const metas = {
   title: 'Blockprint',
   description:
-    'Blockprint is a tool for determining which consensus clients produced which blocks on the Ethereum mainnet.',
+      'Blockprint employs a machine learning model to categorize blocks, conducting its analysis based on a cluster of consensus clients that produce blocks in every slot.',
+  image: 'blockprint.png'
+}
+
+export const metadata: Metadata = {
+  ...metas,
+  twitter: {
+    title: metas.title,
+    description: metas.description,
+    creator: 'sigmaPrime',
+    images: [metas.image],
+  },
+  openGraph: {
+    title: metas.title,
+    description: metas.description,
+    siteName: metas.title,
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: metas.image,
+        width: 800,
+        height: 600,
+      },
+      {
+        url: metas.image,
+        width: 1800,
+        height: 1600,
+        alt: metas.title,
+      },
+    ],
+  }
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -10,10 +10,10 @@ const ExtraResources:FC<ExtraResourcesProps> = ({size = 'md'}) => {
 
   return (
       <div className="flex space-x-4">
-          <a target="_blank" href={GITHUB_URL} rel="noreferrer">
+          <a target="_blank" href={DISCORD_URL} rel="noreferrer">
               <i className={`bi-discord text-light ${iconSizes}`}/>
           </a>
-          <a target="_blank" href={DISCORD_URL} rel="noreferrer">
+          <a target="_blank" href={GITHUB_URL} rel="noreferrer">
               <i className={`bi-github text-light ${iconSizes}`}/>
           </a>
       </div>

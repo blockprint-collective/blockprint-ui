@@ -16,7 +16,7 @@ const Header = forwardRef((_, ref) => {
                     whileInView={UP_ANIM.inView}
                     transition={{...UP_ANIM.transition}}
                 >
-                    <Typography color="text-light80" className="tracking-tighter lg:text-base2 pb-4" fontWeight="font-light" type="text-base" family="font-archivo">Machine Learning for Ethereum Consensus</Typography>
+                    <Typography color="text-light80" className="tracking-tighter lg:text-base2 pb-2" fontWeight="font-light" type="text-base" family="font-archivo">Machine Learning for Ethereum Consensus</Typography>
                 </motion.div>
                 <motion.div
                     initial={UP_ANIM.init}
