@@ -98,8 +98,9 @@ export const OVERVIEW_EXPLAINED = {
 export const TPR_EXPLAINED = {
     title: 'True Positive Rate',
     texts: [
-        'This is a detailed view of the true positive rate, and how false negatives are distributed. In each row, we show the percentage of blocks produced by that client that were classified as the clients from each of the columns.',
-        'The values in each row should sum to ~100% (sometimes 99 or 101% due to rounding). The diagonal cells where the row and column clients are equal should match the TPR from the overview, and are ideally high. The other non-diagonal cells are ideally low, as they represent the row-client being confused for the column client.',
+        'In the true positive rate chart, every row represents the client that produced the blocks and every column the classification according to blockprint. The values in each row should sum to ~100% (sometimes 99 or 101% due to rounding).',
+        'Each intersection containing a client and its respective classification represents block print’s ability to correctly classify that client. In these intersections > 90% are generally positive classifications for that particular client. Intersections where the clients do not match represent a wrong classification from block print.',
+        'A lighthouse row with a Nimbus column, represents the percentage of lighthouse blocks marked as Nimbus blocks. These intersections should ideally return less than 25%, anything higher represents a confusion between those clients in block print’s analysis.',
         'Rows: Client that produced the blocks',
         'Columns: Classification according to Blockprint'
     ]
