@@ -3,10 +3,14 @@
 import Typography from '@/components/Typography/Typography';
 import {motion} from 'framer-motion';
 import {ANIM_VIEWPORT, UP_ANIM} from '@/constants';
-import {forwardRef} from 'react';
+import {forwardRef, Ref} from 'react';
+
+export interface HeaderProps {
+    ref?: Ref<HTMLDivElement>
+}
 
 // eslint-disable-next-line react/display-name
-const Header = forwardRef((_, ref) => {
+const Header = forwardRef<HTMLDivElement>((_, ref) => {
     return (
         <div ref={ref} className="center-staged">
             <div className="w-full py-16 x-padding">

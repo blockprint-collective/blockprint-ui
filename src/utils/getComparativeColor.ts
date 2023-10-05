@@ -1,4 +1,4 @@
-const getComparativeColor = (percentage: number | string): string => {
+const getComparativeColor = (percentage: number): string => {
     switch (true) {
         case percentage <= 10:
         case isNaN(percentage as number):

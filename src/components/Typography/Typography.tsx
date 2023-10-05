@@ -21,6 +21,7 @@ export type TypographyFamily = 'font-openSauce' | 'font-archivo'
 export type TypographyColor =
   | 'text-light'
   | 'text-light80'
+  | 'text-light70'
   | 'text-light50'
   | 'text-purple'
   | 'text-good'
@@ -37,6 +38,7 @@ export type TypographyType =
   | 'text-base3'
   | 'text-base4'
   | 'text-base5'
+  | 'text-base6'
 
 export interface TypographyProps {
   className?: string
@@ -50,7 +52,6 @@ export interface TypographyProps {
   isCapitalize?: boolean
   fontWeight?: 'font-bold' | 'font-normal' | 'font-light'
   family?: TypographyFamily
-  dataTestId?: string
 }
 
 const Typography: FC<TypographyProps> = ({
@@ -75,7 +76,7 @@ const Typography: FC<TypographyProps> = ({
       isUpperCase ? 'uppercase' : isCapitalize ? 'capitalize' : 'normal-case'
   ])
   return createElement(
-    as ? ELEMENT[as] : ELEMENT.p,
+    as ? ELEMENT[as] : ELEMENT.p as any,
     {
       ...props,
       className: classes,
