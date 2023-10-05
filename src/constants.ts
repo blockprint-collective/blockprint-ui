@@ -98,20 +98,22 @@ export const OVERVIEW_EXPLAINED = {
 export const TPR_EXPLAINED = {
     title: 'True Positive Rate',
     texts: [
-        'In the true positive rate chart, every row represents the client that produced the blocks and every column the classification according to blockprint. The values in each row should sum to ~100% (sometimes 99 or 101% due to rounding).',
+        'In the true positive rate chart, every row represents the client that produced the blocks and every column the classification according to blockprint. The values in each row should sum to ~100%.',
         'Each intersection containing a client and its respective classification represents block print’s ability to correctly classify that client. In these intersections > 90% are generally positive classifications for that particular client. Intersections where the clients do not match represent a wrong classification from block print.',
         'A lighthouse row with a Nimbus column, represents the percentage of lighthouse blocks marked as Nimbus blocks. These intersections should ideally return less than 25%, anything higher represents a confusion between those clients in block print’s analysis.',
         'Rows: Client that produced the blocks',
-        'Columns: Classification according to Blockprint'
+        'Columns: Classification according to Blockprint',
+        'Note: Row values may sometimes reach 99 or 101% due to rounding'
     ]
 }
 
 export const PPV_EXPLAINED = {
     title: 'Positive Predictive Value',
     texts: [
-        'This is a detailed view of the positive predictive value, and how false positives are distributed. In each row, we show the percentage of blocks classified as that client which were actually produced by each of the clients from the columns.',
-        'The values in each row should sum to ~100% (sometimes 99 or 101% due to rounding). The diagonal cells where the row and column clients are equal should match the PPV from the overview, and are ideally high. The other non-diagonal cells are ideally low, as they represent the column client being confused for the row client.',
-        'The positive predictive value depends strongly on the prevalence of each client in the population being measured. In our cluster, the distribution of clients is artificially flat: there are approximately the same number of nodes of each client type, and they all produce a block each slot.',
+        'Blockprint is not perfect, which means sometimes it can return false positives. Every row in the positive predictive value (PPV) chart represents the percentage of blocks classified as each client that were actually produced by the client of that column. The values in each row should sum to ~100%.',
+        'Each matching intersection in this chart represents the percentage of actual blocks produced by each client, while mismatching intersections represent false positives. In these matching intersections > 90% are generally positive classifications for that particular client.',
+        'It should be noted that the PPV depends strongly on the prevalence of each client in the population being measured. In our cluster, the distribution of clients is artificially flat: there are approximately the same number of nodes of each client type, and they all produce a block each slot.',
         'As a result, if a minority client like Lodestar is producing a lot of blocks which are misclassified as a majority client like Prysm then the PPV for Prysm will be much lower in our dashboard than it would be on mainnet where there are far fewer real blocks from Lodestar that could be misclassified. We still think this PPV measure is useful, it just bears keeping in minds its limitations and not jumping hastily to conclusions.',
+        'Note: Row values may sometimes reach 99 or 101% due to rounding'
     ]
 }
