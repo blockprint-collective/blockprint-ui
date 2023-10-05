@@ -17,6 +17,14 @@ ENV NODE_ENV=production
 RUN yarn build
 
 # STAGE 2
-FROM nginx:alpine AS production
+FROM node:20-alpine AS production
 
-COPY --from=builder /app/build/ /usr/share/nginx/html/
+RUN npm install --global pm2
+
+WORKDIR /app
+COPY --from=builder /app/package.json /app/yarn.lock ./
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/build ./.next
+
+CMD [ "pm2-runtime", "yarn", "--interpreter", "ash", "--", "start" ]
