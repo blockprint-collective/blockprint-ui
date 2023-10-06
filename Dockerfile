@@ -30,6 +30,6 @@ RUN npm install --global pm2
 COPY --from=builder /app/package.json /app/yarn.lock ./
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/build ./.next
+COPY --from=builder /app/.next ./.next
 
 CMD ["/bin/start.sh"]
