@@ -24,10 +24,10 @@ const Resource:FC<ResourceProps> = ({data}) => {
                   </div>
               </a>
               <div className="flex space-x-4">
-                  <a target="_blank" href={github} rel="noreferrer">
+                  <a target="_blank" href={discord} rel="noreferrer">
                       <i className="bi-discord text-light text-base3"/>
                   </a>
-                  <a target="_blank" href={discord} rel="noreferrer">
+                  <a target="_blank" href={github} rel="noreferrer">
                       <i className="bi-github text-light text-base3"/>
                   </a>
               </div>
