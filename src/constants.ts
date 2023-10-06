@@ -20,8 +20,8 @@ export const Lighthouse = {
     discord: DISCORD_URL
 }
 
-export const LOADSTAR = {
-    title: 'Loadstar',
+export const LODESTAR = {
+    title: 'Lodestar',
     site: 'https://lodestar.chainsafe.io/',
     docs: 'https://hackmd.io/@philknows/rk5cDvKmK',
     github: 'https://github.com/ChainSafe/lodestar',
@@ -84,7 +84,7 @@ export const SIDE_ANIM = {
     transition: {duration: 1.2}
 }
 
-export const RESOURCES = [Lighthouse, GRANDINE, LOADSTAR, NIMBUS, PRYSM, TEKU] as ResourceData[]
+export const RESOURCES = [Lighthouse, GRANDINE, LODESTAR, NIMBUS, PRYSM, TEKU] as ResourceData[]
 
 export const OVERVIEW_EXPLAINED = {
     title: 'Accuracy Overview',
