@@ -1,4 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-yarn install
-yarn dev
+if [ $prod_env = true ]; then
+  pm2-runtime yarn --interpreter sh -- start;
+else 
+  yarn install;
+  yarn dev;
+fi

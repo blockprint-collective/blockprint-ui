@@ -23,7 +23,7 @@ const Table:FC<TableProps> = ({children, className, tableClasses, legend = defau
 
   return (
       <div className={classes}>
-          <table border="1" className={tableClass}>
+          <table border={1} className={tableClass}>
               {children}
           </table>
           <div className="w-full flex justify-between p-3">

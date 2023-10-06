@@ -1,6 +1,6 @@
 'use client'
 
-import {FC, forwardRef, useState} from 'react'
+import {FC, Ref, forwardRef, useState} from 'react'
 import {PrecisionResults, PrecisionView} from '@/types'
 import Overview from '@/components/PercisionTable/Views/Overview';
 import TabSelect from '@/components/PercisionTable/TabSelect';
@@ -14,10 +14,11 @@ import {precisionView} from '@/recoil/atoms';
 
 export interface PrecisionTableProps {
   confusion: PrecisionResults
+  ref?: Ref<HTMLDivElement>
 }
 
 // eslint-disable-next-line react/display-name
-const PrecisionTable: FC<PrecisionTableProps> = forwardRef(({ confusion }, ref) => {
+const PrecisionTable: FC<PrecisionTableProps> = forwardRef<HTMLDivElement, PrecisionTableProps>(({ confusion }, ref) => {
     const [isAnimate, toggleAnimation] = useState(false)
     const triggerNextAnim = () => toggleAnimation(true)
     const [view, setView] = useRecoilState(precisionView)

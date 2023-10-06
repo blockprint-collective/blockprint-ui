@@ -1,4 +1,4 @@
-const getPercentageColor = (percentage: number | string): string => {
+const getPercentageColor = (percentage: number): string => {
   switch (true) {
       case percentage > 90:
           return 'text-good'

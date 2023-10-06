@@ -2,9 +2,9 @@
 import InfoSelect from '@/components/InfoSelect/InfoSelect';
 import {FC, useState} from 'react';
 import ExplainModal from '@/components/ExplainModal/ExplainModal';
-import {motion, AnimationProps} from 'framer-motion';
+import {motion, MotionProps} from 'framer-motion';
 
-export interface ExplanationProps extends AnimationProps {
+export interface ExplanationProps extends MotionProps {
     title: string,
     texts: string[]
 }

@@ -1,8 +1,8 @@
 import {FC} from 'react';
 import Typography from '@/components/Typography/Typography';
-import {motion, AnimationProps} from 'framer-motion';
+import {motion, MotionProps} from 'framer-motion';
 
-export interface TabSelect extends AnimationProps {
+export interface TabSelect extends MotionProps {
     onClick?: () => void
     isActive: boolean
     text: string
