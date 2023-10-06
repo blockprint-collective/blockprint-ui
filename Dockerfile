@@ -17,14 +17,19 @@ ENV NODE_ENV=production
 RUN yarn build
 
 # STAGE 2
-FROM node:20-alpine AS production
+FROM node:${node_version}-alpine AS production
 
+EXPOSE 80 
+ENV PORT=80
+ENV prod_env=true
+
+COPY ./start.sh /bin/start.sh
+WORKDIR /app
 RUN npm install --global pm2
 
-WORKDIR /app
 COPY --from=builder /app/package.json /app/yarn.lock ./
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/build ./.next
 
-CMD [ "pm2-runtime", "yarn", "--interpreter", "ash", "--", "start" ]
+CMD ["/bin/start.sh"]
