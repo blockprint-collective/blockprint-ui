@@ -8,6 +8,9 @@ export interface ResourceProps {
 
 const Resource:FC<ResourceProps> = ({data}) => {
    const { title, site, github, discord, docs } = data
+
+    const isHidden = (link) => !link ? 'pointer-events-none opacity-0' : undefined
+
   return (
       <li className="w-full flex justify-between border-b border-light50 py-4">
           <a target="_blank" href={site} rel="noreferrer">
@@ -17,17 +20,17 @@ const Resource:FC<ResourceProps> = ({data}) => {
               </div>
           </a>
           <div className="flex space-x-4">
-              <a target="_blank" href={docs} rel="noreferrer">
+              <a target="_blank" href={docs} className={isHidden(docs)} rel="noreferrer">
                   <div className="flex space-x-2 items-center border border-light rounded-full py-1 px-3">
                       <Typography>Docs</Typography>
                       <i className="bi-book text-light"/>
                   </div>
               </a>
               <div className="flex space-x-4">
-                  <a target="_blank" href={discord} rel="noreferrer">
+                  <a target="_blank" href={discord} className={isHidden(discord)} rel="noreferrer">
                       <i className="bi-discord text-light text-base3"/>
                   </a>
-                  <a target="_blank" href={github} rel="noreferrer">
+                  <a target="_blank" href={github} className={isHidden(github)} rel="noreferrer">
                       <i className="bi-github text-light text-base3"/>
                   </a>
               </div>
