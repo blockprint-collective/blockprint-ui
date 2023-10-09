@@ -2,11 +2,11 @@
 
 import {FC, Ref, forwardRef, useState} from 'react'
 import {PrecisionResults, PrecisionView} from '@/types'
-import Overview from '@/components/PercisionTable/Views/Overview';
-import TabSelect from '@/components/PercisionTable/TabSelect';
-import TruePositive from '@/components/PercisionTable/Views/TruePositive';
+import Overview from '@/components/PrecisionTable/Views/Overview';
+import TabSelect from '@/components/PrecisionTable/TabSelect';
+import TruePositive from '@/components/PrecisionTable/Views/TruePositive';
 import Typography from '@/components/Typography/Typography';
-import PositivePredictive from '@/components/PercisionTable/Views/PositivePredictive';
+import PositivePredictive from '@/components/PrecisionTable/Views/PositivePredictive';
 import {motion} from 'framer-motion';
 import {ANIM_VIEWPORT, UP_ANIM, SIDE_ANIM, LEFT_SIDE_DIAGONAL_ANIM} from '@/constants';
 import {useRecoilState} from 'recoil';

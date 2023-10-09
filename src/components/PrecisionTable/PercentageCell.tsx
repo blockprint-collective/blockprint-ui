@@ -1,6 +1,6 @@
 'use client'
 import Typography from '@/components/Typography/Typography';
-import PercentageFill from '@/components/PercisionTable/PercentageFill';
+import PercentageFill from '@/components/PrecisionTable/PercentageFill';
 import {ClientDiversityResult} from '@/types';
 import {FC, useEffect, useState} from 'react';
 
