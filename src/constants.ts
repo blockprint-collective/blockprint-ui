@@ -98,22 +98,27 @@ export const OVERVIEW_EXPLAINED = {
 export const TPR_EXPLAINED = {
     title: 'True Positive Rate',
     texts: [
-        'In the true positive rate chart, every row represents the client that produced the blocks and every column the classification according to blockprint. The values in each row should sum to ~100%.',
-        'Each intersection containing a client and its respective classification represents block print’s ability to correctly classify that client. In these intersections > 90% are generally positive classifications for that particular client. Intersections where the clients do not match represent a wrong classification from block print.',
-        'A lighthouse row with a Nimbus column, represents the percentage of lighthouse blocks marked as Nimbus blocks. These intersections should ideally return less than 25%, anything higher represents a confusion between those clients in block print’s analysis.',
-        'Rows: Client that produced the blocks',
-        'Columns: Classification according to Blockprint',
-        'Note: Row values may sometimes reach 99 or 101% due to rounding'
+        'Each row in the true positive rate chart shows the breakdown of true positives and false negatives for a single client. The values in each row should sum to ~100%.',
+        'Each matching intersection in this chart represents the percentage of blocks produced by that client which were correctly classified. For example, the diagonal cell for Lighthouse-Lighthouse shows the fraction of blocks produced by Lighthouse which were correctly classified as Lighthouse. Ideally we want these diagonal values to be greater than 90%.',
+        'Intersections where the clients do not match represent false negatives, where blocks produced by a client were incorrectly classified as another client by blockprint. For example, a Lighthouse row with a Nimbus column represents the percentage of Lighthouse blocks incorrectly classified as Nimbus blocks. These intersections should ideally be less than 25%, anything higher represents a confusion between those clients in blockprint’s analysis.',
+    'You might be wondering how TPR differs from PPV. The fundamental difference is the denominator used in the percentage calculations. The TPR is measured as a fraction of the number of blocks produced by a client, while the PPV is measured as a fraction of the blocks classified by blockprint as a particular client.',
+        'Row: Client that produced the blocks',
+        'Column: Classification according to blockprint',
+        'Note: Row totals may sometimes reach 99 or 101% due to rounding'
     ]
 }
 
 export const PPV_EXPLAINED = {
     title: 'Positive Predictive Value',
     texts: [
-        'Blockprint is not perfect, which means sometimes it can return false positives. Every row in the positive predictive value (PPV) chart represents the percentage of blocks classified as each client that were actually produced by the client of that column. The values in each row should sum to ~100%.',
-        'Each matching intersection in this chart represents the percentage of actual blocks produced by each client, while mismatching intersections represent false positives. In these matching intersections > 90% are generally positive classifications for that particular client.',
+        'Each row in the positive predictive value chart shows the breakdown of true positives and false positives for a single client classification. The values in each row should sum to ~100%.',
+        'Each matching intersection in this chart represents the percentage of classifications which are true positives. For example, the diagonal cell for Teku-Teku shows the fraction of blocks classified as Teku which were actually produced by Teku. Ideally we want these diagonal values to be greater than 90%.',
+    'Intersections where the clients do not match represent false positives, where blocks classified as a client by blockprint were actually produced by another client. For example, a Prysm row with a Teku column represents the percentage of Prysm classifications which are actually blocks produced by Teku. These intersections should ideally be less than 25%, anything higher represents a confusion between those clients in blockprint’s analysis.',
         'It should be noted that the PPV depends strongly on the prevalence of each client in the population being measured. In our cluster, the distribution of clients is artificially flat: there are approximately the same number of nodes of each client type, and they all produce a block each slot.',
         'As a result, if a minority client like Lodestar is producing a lot of blocks which are misclassified as a majority client like Prysm then the PPV for Prysm will be much lower in our dashboard than it would be on mainnet where there are far fewer real blocks from Lodestar that could be misclassified. We still think this PPV measure is useful, it just bears keeping in minds its limitations and not jumping hastily to conclusions.',
-        'Note: Row values may sometimes reach 99 or 101% due to rounding'
+    'You might be wondering how TPR differs from PPV. The fundamental difference is the denominator used in the percentage calculations. The TPR is measured as a fraction of the number of blocks produced by a client, while the PPV is measured as a fraction of the blocks classified by blockprint as a particular client.',
+        'Row: Classification according to blockprint',
+    'Column: Client that produced the blocks',
+    'Note: Row totals may sometimes reach 99 or 101% due to rounding'
     ]
 }
