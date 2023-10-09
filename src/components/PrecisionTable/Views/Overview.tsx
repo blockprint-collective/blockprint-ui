@@ -3,11 +3,11 @@ import getTrueNegativeRate from '@/utils/getTrueNegativeRate';
 import getPositivePredictiveValue from '@/utils/getPositivePredictiveValue';
 import {PrecisionResults} from '@/types';
 import {FC} from 'react';
-import TableDataCell, {TableDataCellProps} from '@/components/PercisionTable/TableDataCell';
+import TableDataCell, {TableDataCellProps} from '@/components/PrecisionTable/TableDataCell';
 import getPercentageColor from '@/utils/getPercentageColor';
 import Typography from '@/components/Typography/Typography';
-import Table from '@/components/PercisionTable/Table';
-import TableHeaderCell from '@/components/PercisionTable/TableHeaderCell';
+import Table from '@/components/PrecisionTable/Table';
+import TableHeaderCell from '@/components/PrecisionTable/TableHeaderCell';
 
 export interface OverviewTableProps extends Pick<TableDataCellProps, 'isAnimate'> {
     data: PrecisionResults

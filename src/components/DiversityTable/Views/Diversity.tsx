@@ -1,7 +1,7 @@
 import {DiversityResults} from '@/types';
 import {FC} from 'react';
-import Table from '@/components/PercisionTable/Table';
-import PercentageCell from '@/components/PercisionTable/PercentageCell';
+import Table from '@/components/PrecisionTable/Table';
+import PercentageCell from '@/components/PrecisionTable/PercentageCell';
 import formatDiversity from '@/utils/formatDiversity';
 import Typography from '@/components/Typography/Typography';
 

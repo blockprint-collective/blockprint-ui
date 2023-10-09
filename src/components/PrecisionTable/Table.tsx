@@ -2,7 +2,7 @@ import {FC, ReactNode} from 'react';
 import Typography from '@/components/Typography/Typography';
 import addClassString from '@/utils/addClassString';
 import {TableLegend} from '@/types';
-import LegendItem from '@/components/PercisionTable/LegendItem';
+import LegendItem from '@/components/PrecisionTable/LegendItem';
 
 const defaultLegend = {
     error: 'Poor',

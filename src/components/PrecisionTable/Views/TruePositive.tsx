@@ -2,14 +2,14 @@ import {PrecisionResults} from '@/types';
 import {FC} from 'react';
 import getTruePositiveRate from '@/utils/getTruePositiveRate';
 import getComparativeTprRate from '@/utils/getComparativeTprRate';
-import TableDataCell, {TableDataCellProps} from '@/components/PercisionTable/TableDataCell';
+import TableDataCell, {TableDataCellProps} from '@/components/PrecisionTable/TableDataCell';
 import getPercentageColor from '@/utils/getPercentageColor';
 import getComparativeColor from '@/utils/getComparativeColor';
 import Typography from '@/components/Typography/Typography';
-import Table from '@/components/PercisionTable/Table';
-import TableHeaderCell from '@/components/PercisionTable/TableHeaderCell';
+import Table from '@/components/PrecisionTable/Table';
+import TableHeaderCell from '@/components/PrecisionTable/TableHeaderCell';
 import {TPR_EXPLAINED} from '@/constants';
-import InfoModal from '@/components/PercisionTable/InfoModal';
+import InfoModal from '@/components/PrecisionTable/InfoModal';
 
 export interface TruePositiveTableProps extends Pick<TableDataCellProps, 'isAnimate'> {
     data: PrecisionResults

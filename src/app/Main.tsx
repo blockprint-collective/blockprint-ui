@@ -8,7 +8,7 @@ import Background from '@/components/Background/Background';
 import TopBar from '@/components/TopBar/TopBar';
 import Header from '@/components/Header/Header';
 import DiversityTable from '@/components/DiversityTable/DiversityTable';
-import PrecisionTable from '@/components/PercisionTable/PrecisionTable';
+import PrecisionTable from '@/components/PrecisionTable/PrecisionTable';
 import ShoutOuts from '@/components/ShoutOuts/ShoutOuts';
 import HowItWorks from '@/components/HowItWorks/HowItWorks';
 import Footer from '@/components/Footer/Footer';

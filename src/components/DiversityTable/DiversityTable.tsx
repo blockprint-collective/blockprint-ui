@@ -1,7 +1,7 @@
 'use client'
 
 import Typography from '@/components/Typography/Typography';
-import TabSelect from '@/components/PercisionTable/TabSelect';
+import TabSelect from '@/components/PrecisionTable/TabSelect';
 import {DiversityResults} from '@/types';
 import Diversity from '@/components/DiversityTable/Views/Diversity';
 import {FC} from 'react';
