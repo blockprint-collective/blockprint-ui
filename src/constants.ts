@@ -8,7 +8,6 @@ export const GRANDINE = {
     title: 'Grandine',
     site: 'https://sifrai.com/',
     docs: 'https://github.com/sifraitech/grandine',
-    github: 'https://github.com/sifraitech/grandine',
     discord: 'https://discord.gg/H9XCdUSyZd'
 }
 
