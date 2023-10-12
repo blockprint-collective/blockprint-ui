@@ -22,7 +22,7 @@ Or using Docker:
 ```
 docker build -t blockprint-ui-dev . -f Dockerfile.dev
 docker run --rm -ti --mount type=bind,source=$PWD,target=/app -p 3000:3000 blockprint-ui-dev
-Optionally, you can overwrite the backend with an environment variable: `-e API_ENDPOINT="https://your.endpoint.goes/here"`
+Optionally, you can overwrite the backends with environment variables: `-e CONFUSION_API_ENDPOINT="https://your.endpoint.goes/here" -e DIVERSITY_API_ENDPOINT="https://https://your.endpoint.goes/here"`
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -30,6 +30,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## Production build
+
+To run a production server, first configure the correct backends in `config.ts`  
+Make sure they are available in your docker builder's context!  
+Build the image: `docker build -t blockprint-ui .`  
+By default, the image exposes the server on port 80. Edit your `Dockerfile` if this doesn't suit your needs.  
 
 ## Learn More
 
