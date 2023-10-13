@@ -13,7 +13,7 @@ const PercentageFill:FC<PercentageFillProps> = ({percentage}) => {
         getDiversityColor(percentage)
     ])
   return (
-      <div className="flex-1 h-8 rounded-full bg-dark300 overflow-hidden percent-container relative">
+      <div className="flex-1 h-8 rounded-full bg-dark300 overflow-hidden percent-container-mobile relative">
           <div style={{transform: `translateX(-${translation}%)`}} className={classes}>
               <div className="absolute right-0 top-0 w-8 opacity-20 h-full bg-dark rounded-full" />
           </div>
