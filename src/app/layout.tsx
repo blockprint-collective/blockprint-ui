@@ -1,3 +1,4 @@
+import { defaultUiEndpoint } from '../../config'
 import './globals.css'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
@@ -40,6 +41,7 @@ const archivo = localFont({
 })
 
 const metas = {
+  metadataBase: new URL(`${defaultUiEndpoint}`),
   title: 'Blockprint',
   description:
       'Blockprint employs a machine learning model to categorize blocks, conducting its analysis based on a cluster of consensus clients that produce blocks in every slot.',
