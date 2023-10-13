@@ -43,7 +43,7 @@ const metas = {
   title: 'Blockprint',
   description:
       'Blockprint employs a machine learning model to categorize blocks, conducting its analysis based on a cluster of consensus clients that produce blocks in every slot.',
-  image: 'blockprint.png'
+  image: '/blockprint.png'
 }
 
 export const metadata: Metadata = {
