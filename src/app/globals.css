@@ -12,11 +12,20 @@ html {
     scroll-behavior: smooth;
 }
 
-.percent-container {
+.percent-container-mobile {
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0)
+}
+
+@media (min-width: 768px) {
+    .percent-container-mobile {
+        -webkit-backface-visibility: visible;
+        -moz-backface-visibility: visible;
+        -webkit-transform: inherit;
+        -moz-transform: inherit
+    }
 }
 
 
