@@ -63,3 +63,7 @@ html {
 .center-staged {
     @apply w-full flex justify-center
 }
+
+.table-container {
+    @apply bg-dark100 border-dark200 shadow flex flex-col items-center justify-center rounded-lg
+}
