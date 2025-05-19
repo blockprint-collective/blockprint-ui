@@ -12,7 +12,7 @@ export type DiversityResults = {
 }
 
 export type ClientDiversityResult = {
-  client: string,
+  client: string
   percentage: string
 }
 
@@ -44,19 +44,19 @@ export enum PrecisionView {
 
 export enum DiversityView {
   VALIDATOR = 'VALIDATOR',
-  NODE = 'NODE'
+  NODE = 'NODE',
 }
 
 export type TableLegend = {
-  error: string,
-  fair: string,
+  error: string
+  fair: string
   good: string
 }
 
 export type ResourceData = {
-  title: string,
-  site: string,
-  docs: string,
-  github: string,
-  discord: string,
+  title: string
+  site: string
+  docs: string
+  github: string
+  discord: string
 }

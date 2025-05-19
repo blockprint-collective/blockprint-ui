@@ -1,19 +1,18 @@
-import {useSetRecoilState} from 'recoil';
+import { useSetRecoilState } from 'recoil'
 
 const useScrollTableView = (scrollCallback: () => void, atom) => {
-    const setTableView = useSetRecoilState(atom)
+  const setTableView = useSetRecoilState(atom)
 
+  const scrollTableView = (view) => {
+    scrollCallback()
+    setTimeout(() => {
+      setTableView(view)
+    }, 1000)
+  }
 
-    const scrollTableView = (view) => {
-        scrollCallback();
-        setTimeout(() => {
-            setTableView(view)
-        }, 1000)
-    }
-
-    return {
-        scrollTableView
-    }
+  return {
+    scrollTableView,
+  }
 }
 
 export default useScrollTableView

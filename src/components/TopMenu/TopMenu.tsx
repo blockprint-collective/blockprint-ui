@@ -1,40 +1,43 @@
 'use client'
 
-import {FC, useState} from 'react';
-import Typography from '@/components/Typography/Typography';
-import ExtraResources from '@/components/ExtraResources/ExtraResources';
-import SideMenu from '@/components/TopMenu/SideMenu';
-import ResourceModal from '@/components/ResourceModal/ResourceModal';
+import { FC, useState } from 'react'
+import Typography from '@/components/Typography/Typography'
+import ExtraResources from '@/components/ExtraResources/ExtraResources'
+import SideMenu from '@/components/TopMenu/SideMenu'
+import ResourceModal from '@/components/ResourceModal/ResourceModal'
 
 export interface TopMenuProps {
-    onScrollPrecision: () => void
-    onScrollDiversity: () => void
+  onScrollPrecision: () => void
+  onScrollDiversity: () => void
 }
 
-const TopMenu:FC<TopMenuProps> = (props) => {
+const TopMenu: FC<TopMenuProps> = (props) => {
   const [isMenu, toggleMenu] = useState(false)
-    const [isResourceMenu, toggleResourceMenu] = useState(false)
+  const [isResourceMenu, toggleResourceMenu] = useState(false)
 
   const closeMenu = () => toggleMenu(false)
   const openMenu = () => toggleMenu(true)
   const closeResource = () => toggleResourceMenu(false)
-    const openResource = () => toggleResourceMenu(true)
+  const openResource = () => toggleResourceMenu(true)
 
   return (
-      <>
-          <div className="items-center space-x-4 hidden md:flex">
-              <div onClick={openResource} className="h-full cursor-pointer">
-                  <Typography type="text-tiny">Client Resources</Typography>
-              </div>
-              <ExtraResources/>
-          </div>
-          <div onClick={openMenu} className="md:hidden rounded-full h-8 w-8 border border-dark300 flex items-center justify-center cursor-pointer hover:bg-dark300">
-              <i className="bi-list text-base2"/>
-          </div>
-          <SideMenu {...props} isOpen={isMenu} onClose={closeMenu} onOpenResources={openResource}/>
-          <ResourceModal isOpen={isResourceMenu} onClose={closeResource}/>
-      </>
+    <>
+      <div className='items-center space-x-4 hidden md:flex'>
+        <div onClick={openResource} className='h-full cursor-pointer'>
+          <Typography type='text-tiny'>Client Resources</Typography>
+        </div>
+        <ExtraResources />
+      </div>
+      <div
+        onClick={openMenu}
+        className='md:hidden rounded-full h-8 w-8 border border-dark300 flex items-center justify-center cursor-pointer hover:bg-dark300'
+      >
+        <i className='bi-list text-base2' />
+      </div>
+      <SideMenu {...props} isOpen={isMenu} onClose={closeMenu} onOpenResources={openResource} />
+      <ResourceModal isOpen={isResourceMenu} onClose={closeResource} />
+    </>
   )
 }
 
-export default TopMenu;
+export default TopMenu
