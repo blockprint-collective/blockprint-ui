@@ -1,5 +1,5 @@
 import { FC, ReactNode, createElement } from 'react'
-import addClassString from '@/utils/addClassString';
+import addClassString from '@/utils/addClassString'
 
 const ELEMENT = {
   h1: 'h1',
@@ -27,7 +27,7 @@ export type TypographyColor =
   | 'text-good'
   | 'text-fair'
   | 'text-error'
-    | 'text-dark';
+  | 'text-dark'
 
 export type TypographyType =
   | 'text-xs'
@@ -68,15 +68,15 @@ const Typography: FC<TypographyProps> = ({
   ...props
 }) => {
   const classes = addClassString('m-0', [
-      className,
-      type,
-      family,
-      color,
-      isBold ? 'font-bold' : fontWeight,
-      isUpperCase ? 'uppercase' : isCapitalize ? 'capitalize' : 'normal-case'
+    className,
+    type,
+    family,
+    color,
+    isBold ? 'font-bold' : fontWeight,
+    isUpperCase ? 'uppercase' : isCapitalize ? 'capitalize' : 'normal-case',
   ])
   return createElement(
-    as ? ELEMENT[as] : ELEMENT.p as any,
+    as ? ELEMENT[as] : (ELEMENT.p as any),
     {
       ...props,
       className: classes,
